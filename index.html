@@ -16,13 +16,13 @@
       --stroke: rgba(255,255,255,0.08);
       --radius-lg: 20px;
       --radius-sm: 10px;
-      --container-max: 1280px;
       --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -33,514 +33,35 @@
       line-height: 1.5;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    /* ---------------------------- HERO + GERAL */
+    .container { max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1,h2,h3,h4 { margin: 0 0 .5em; font-weight: 600; color: var(--text-light); }
+    p { color: var(--text-dim); margin: 0 0 1em; }
 
-    h1,h2,h3,h4 {
-      margin: 0 0 .5em;
-      line-height: 1.2;
-      color: var(--text-light);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    p {
-      margin: 0 0 1em;
-      color: var(--text-dim);
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    /* HERO ====================== */
-    .hero {
-      position: relative;
-      background: radial-gradient(circle at 20% 20%, rgba(0,255,133,0.12) 0%, rgba(15,23,42,0) 60%),
-                  radial-gradient(circle at 80% 10%, rgba(0,102,255,0.15) 0%, rgba(15,23,42,0) 60%),
-                  linear-gradient(to bottom right,#0f172a 20%,#1e2538 100%);
-      border-bottom: 1px solid var(--stroke);
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media(min-width:768px){
-      .hero-grid {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-    }
-
-    .badge-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .75rem;
-      margin-bottom: 1rem;
-      font-size: .8rem;
-      color: var(--text-dim);
-      font-weight: 500;
-    }
-
-    .cred-badge {
-      background: rgba(0,0,0,0.4);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      color: var(--text-light);
-      padding: .4rem .6rem;
-      font-size: .7rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-    }
-
-    .cred-badge span.icon {
-      width: .6rem;
-      height: .6rem;
-      background: var(--accent);
-      border-radius: 2px;
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 2vw + 1rem, 2.75rem);
-      font-weight: 600;
-    }
-
-    .hero p.lead {
-      color: var(--text-dim);
-      font-size: 1.1rem;
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); }
 
     .btn-primary {
       background: var(--accent);
       color: #000;
-      font-weight: 600;
-      border: 0;
+      border: none;
       border-radius: var(--radius-sm);
       padding: .9rem 1.2rem;
-      font-size: .95rem;
-      line-height: 1.2;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0,255,133,.25);
+      transition: 0.2s;
       text-decoration: none;
       display: inline-block;
-      transition: all .15s linear;
     }
+    .btn-primary:hover { background: var(--accent-dark); }
 
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      box-shadow: 0 16px 40px rgba(0,255,133,.35);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--stroke);
-      color: var(--text-light);
-      font-weight: 500;
-      padding: .9rem 1.2rem;
-      font-size: .95rem;
-      line-height: 1.2;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all .15s linear;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,.05);
-    }
-
-    .hero-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 1rem;
-      position: relative;
-    }
-
-    .mini-block {
-      background: rgba(15,23,42,.6);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      padding: .75rem;
-    }
-
-    .mini-label {
-      font-size: .7rem;
-      color: var(--text-dim);
-      margin-bottom: .4rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 500;
-    }
-
-    .mini-value {
-      font-size: .9rem;
-      color: var(--text-light);
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    /* SECTION WRAPPER ====================== */
-    section {
-      border-bottom: 1px solid var(--stroke);
-      background: radial-gradient(circle at 10% 0%, rgba(0,255,133,0.05) 0%, rgba(0,0,0,0) 60%);
-    }
-
-    section .section-head {
-      max-width: 780px;
-      margin-bottom: 2rem;
-    }
-
-    .section-eyebrow {
-      font-size: .75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--accent);
-      margin-bottom: .5rem;
-      display: block;
-    }
-
-    /* SOBRE ====================== */
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media(min-width:900px){
-      .sobre-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .sobre-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.5rem 2rem;
-      font-size: .95rem;
-    }
-
-    /* SERVIÇOS ====================== */
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:700px){
-      .servicos-grid {
-        grid-template-columns: repeat(2,1fr);
-      }
-    }
-    @media(min-width:1024px){
-      .servicos-grid {
-        grid-template-columns: repeat(4,1fr);
-      }
-    }
-
-    .service-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .icon-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(0,255,133,.1);
-      border: 1px solid rgba(0,255,133,.4);
-      color: var(--accent);
-      font-size: .8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: .75rem;
-    }
-
-    .service-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-light);
-      margin-bottom: .5rem;
-    }
-
-    .service-card p {
-      font-size: .9rem;
-      color: var(--text-dim);
-      line-height: 1.4;
-    }
-
-    /* PARA QUEM ====================== */
-    .publicos-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:800px){
-      .publicos-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
-    }
-    .publico-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-    }
-    .publico-card h4 {
-      font-size: .95rem;
-      font-weight: 600;
-      margin-bottom: .5rem;
-      color: var(--text-light);
-    }
-    .emoji {
-      font-size: 1.2rem;
-      line-height: 1;
-      display: inline-block;
-      margin-right: .5rem;
-    }
-    .publico-card p {
-      font-size: .9rem;
-      color: var(--text-dim);
-      line-height: 1.4;
-      margin: 0;
-    }
-
-    /* PROVAS SOCIAIS ====================== */
-    .prova-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    @media(min-width:900px){
-      .prova-wrapper {
-        grid-template-columns: 2fr 1fr;
-      }
-    }
-
-    .quote-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.5rem 2rem;
-      position: relative;
-    }
-
-    .quote-mark {
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--accent);
-      margin-bottom: .5rem;
-    }
-
-    .quote-text {
-      font-size: 1rem;
-      color: var(--text-light);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .quote-author {
-      font-size: .9rem;
-      color: var(--text-dim);
-      font-weight: 400;
-    }
-
-    .logos-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(min(120px,100%),1fr));
-      gap: 1rem;
-      font-size: .8rem;
-      color: var(--text-dim);
-      text-align: center;
-    }
-
-    .logo-item {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      padding: 1rem;
-      color: var(--text-dim);
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-    }
-
-    /* DIFERENCIAIS ====================== */
-    .diff-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:800px){
-      .diff-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
-    }
-
-    .diff-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-    }
-    .diff-card h4 {
-      margin-bottom: .5rem;
-      color: var(--text-light);
-      font-size: .95rem;
-      font-weight: 600;
-    }
-    .diff-card p {
-      color: var(--text-dim);
-      font-size: .9rem;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* FORM CONTATO ====================== */
-    .contato-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    @media(min-width:900px){
-      .contato-wrapper {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .contato-left h2 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    .contato-left p {
-      font-size: 1rem;
-      max-width: 28rem;
-    }
-
-    form {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem 1rem;
-    }
-    @media(min-width:600px){
-      .form-grid-2col {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    label {
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--text-light);
-      display: block;
-      margin-bottom: .4rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      background: rgba(15,23,42,.6);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      color: var(--text-light);
-      font-size: .9rem;
-      line-height: 1.4;
-      padding: .8rem .8rem;
-      font-family: var(--font-primary);
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus {
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 0 4px rgba(0,255,133,.12);
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .enviar-wrapper {
-      margin-top: 1rem;
-    }
-
-    .btn-whatsapp {
-      width: 100%;
-      justify-content: center;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .95rem;
-    }
-
-    /* FOOTER ====================== */
+    /* ---------------------------- FOOTER */
     footer {
       background: #0b1220;
       color: var(--text-dim);
       font-size: .8rem;
-      line-height: 1.4;
       padding: 2rem 1.5rem 4rem;
       text-align: center;
-    }
-
-    footer .footer-inner {
-      max-width: var(--container-max);
-      margin: 0 auto;
-    }
-
-    footer .legal {
-      color: var(--text-dim);
-      margin-bottom: 1rem;
     }
 
     footer nav {
@@ -550,355 +71,146 @@
       gap: 1rem 2rem;
       margin-bottom: 1rem;
     }
+    footer a { color: var(--text-light); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
 
-    footer a {
+    /* ---------------------------- MODAL POLÍTICA */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(6px);
+    }
+
+    .modal {
+      background: var(--bg-card);
       color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: .8rem;
+      max-width: 700px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--stroke);
+      position: relative;
+      animation: fadeIn .3s ease;
     }
 
-    footer a:hover {
-      color: var(--accent);
+    @keyframes fadeIn {
+      from { transform: scale(.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
+
+    .modal h2 { font-size: 1.3rem; margin-bottom: .75rem; }
+    .modal p { font-size: .9rem; line-height: 1.6; margin-bottom: 1rem; }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color .2s;
+    }
+    .modal-close:hover { color: var(--accent); }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="badge-line">
-          <div class="cred-badge">
-            <span class="icon"></span>
-            Credenciada CBF
-          </div>
-          <div class="cred-badge">
-            <span class="icon"></span>
-            Conexão FIFA
-          </div>
-        </div>
-
-        <h1>Transformamos talento em carreira profissional.</h1>
-
-        <p class="lead">
-          Somos uma agência credenciada pela CBF e com parceiros FIFA, especializada em gestão e intermediação de atletas de futebol no Brasil e no exterior. Do primeiro contrato ao grande clube: cuidamos da sua jornada com credibilidade e estratégia.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#contato" class="btn-primary">Enviar meu material</a>
-          <a href="#sobre" class="btn-outline">Quero saber mais</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="mini-block">
-          <div class="mini-label">Atletas assessorados</div>
-          <div class="mini-value">+XX atletas em base e profissional</div>
-        </div>
-        <div class="mini-block">
-          <div class="mini-label">Transferências</div>
-          <div class="mini-value">Brasil • Europa • Oriente Médio</div>
-        </div>
-        <div class="mini-block">
-          <div class="mini-label">Bastidor real</div>
-          <div class="mini-value">Negociação direta com clubes</div>
-        </div>
-      </div>
-    </div>
+  <!-- Simulação do conteúdo principal -->
+  <header id="topo" class="container">
+    <h1>Transformamos talento em carreira profissional</h1>
+    <p>Agência credenciada pela CBF e com parceiros FIFA, especializada em gestão e intermediação de atletas.</p>
+    <a href="#contato" class="btn-primary">Enviar meu material</a>
   </header>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="container sobre-grid">
-      <div class="section-head">
-        <span class="section-eyebrow">Quem somos</span>
-        <h2>Carreira tratada como projeto de vida.</h2>
-        <p>
-          Fundada por [nomes dos diretores], ambos agentes credenciados pela CBF, nossa agência atua no desenvolvimento, representação e transferência de atletas em todos os níveis do futebol profissional.
-        </p>
-        <p>
-          Com um braço FIFA dentro do escritório, temos acesso direto ao mercado internacional e aos principais clubes e empresários do mundo.
-        </p>
-      </div>
-
-      <div class="sobre-card">
-        <p>
-          Nossa missão é cuidar da carreira do atleta com transparência, planejamento e respeito ao talento. Aqui, o jogador não é só um número em planilha. É um patrimônio que precisa ser protegido, desenvolvido e colocado nas melhores vitrines — no Brasil e fora dele.
-        </p>
-        <p>
-          Negociamos como empresários. Planejamos como estrategistas. E cuidamos como quem entende que futebol é, sim, profissão, mas também é sonho de família.
-        </p>
-      </div>
-    </div>
+  <section id="sobre" class="container">
+    <h2>Sobre a Agência</h2>
+    <p>Fundada por agentes credenciados pela CBF, atuamos com atletas em todas as fases da carreira.</p>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">O que fazemos</span>
-        <h2>Serviços que geram carreira, não promessa.</h2>
-        <p>Nosso trabalho é entregar evolução esportiva e segurança de carreira, dentro e fora de campo.</p>
-      </div>
-
-      <div class="servicos-grid">
-        <div class="service-card">
-          <div class="icon-circle">📈</div>
-          <h3>Gestão de Carreira</h3>
-          <p>Planejamento estratégico de evolução profissional e financeira, passo a passo, fase a fase.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon-circle">🤝</div>
-          <h3>Intermediação e Transferências</h3>
-          <p>Negociação de contratos e oportunidades no Brasil e exterior, com credibilidade de mercado.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon-circle">🎯</div>
-          <h3>Mentoria e Formação</h3>
-          <p>Suporte técnico, emocional e de imagem para jovens atletas e suas famílias.</p>
-        </div>
-        <div class="service-card">
-          <div class="icon-circle">📸</div>
-          <h3>Gestão de Imagem e Mídia</h3>
-          <p>Posicionamento de marca pessoal, mídia social, aparições e parcerias comerciais.</p>
-        </div>
-      </div>
-    </div>
+  <section id="servicos" class="container">
+    <h2>O que fazemos</h2>
+    <p>Gestão de carreira, intermediação e transferência de atletas para o mercado nacional e internacional.</p>
   </section>
 
-  <!-- PARA QUEM -->
-  <section id="publicos">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Para quem atuamos</span>
-        <h2>Você entra em qual fase?</h2>
-        <p>Atuamos com atletas em diferentes estágios da carreira — e também com quem ajuda a cuidar dela.</p>
-      </div>
-
-      <div class="publicos-grid">
-        <div class="publico-card">
-          <h4><span class="emoji">⚽️</span>Profissionais</h4>
-          <p>Gestão de contratos, transferências e expansão internacional. Blindagem de imagem e suporte jurídico.</p>
-        </div>
-
-        <div class="publico-card">
-          <h4><span class="emoji">👟</span>Jovens talentos (base)</h4>
-          <p>Planejamento de carreira, vitrine esportiva, preparação mental e orientação familiar para a transição ao profissional.</p>
-        </div>
-
-        <div class="publico-card">
-          <h4><span class="emoji">👨‍👩‍👦</span>Pais e responsáveis</h4>
-          <p>Transparência, segurança jurídica e acompanhamento contínuo. Nada acontece sem você saber.</p>
-        </div>
-      </div>
-    </div>
+  <section id="contato" class="container">
+    <h2>Entre em contato</h2>
+    <p>Preencha o formulário e envie seu material para avaliação.</p>
   </section>
 
-  <!-- PROVA SOCIAL -->
-  <section id="resultados">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Resultados reais</span>
-        <h2>Histórias que inspiram.</h2>
-        <p>Credibilidade não se declara, se prova. Abaixo você tem bastidor, atleta e clube — real, sem teatro.</p>
-      </div>
-
-      <div class="prova-wrapper">
-        <div class="quote-card">
-          <div class="quote-mark">“</div>
-          <div class="quote-text">
-            Desde o início, a agência acreditou em mim e cuidou de tudo para que eu focasse apenas em jogar.
-          </div>
-          <div class="quote-author">
-            — [Nome do atleta], atualmente no [Clube]
-          </div>
-        </div>
-
-        <div class="logos-card">
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[MATÉRIA NA MÍDIA]</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIFERENCIAIS -->
-  <section id="diferenciais">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Por que escolher a gente</span>
-        <h2>Diferenciais que fazem diferença em campo e na mesa de negociação.</h2>
-        <p>Quando o assunto é carreira, cada detalhe jurídico, comercial e estratégico conta.</p>
-      </div>
-
-      <div class="diff-grid">
-        <div class="diff-card">
-          <h4>Credenciados oficialmente pela CBF</h4>
-          <p>Atuação regulamentada e dentro das normas da entidade máxima do futebol brasileiro.</p>
-        </div>
-        <div class="diff-card">
-          <h4>Acesso direto ao mercado FIFA</h4>
-          <p>Networking internacional ativo, com portas abertas em clubes e empresários fora do país.</p>
-        </div>
-        <div class="diff-card">
-          <h4>Equipe com experiência dentro e fora de campo</h4>
-          <p>Visão esportiva + visão de negócio. Proteção jurídica e planejamento financeiro.</p>
-        </div>
-        <div class="diff-card">
-          <h4>Atendimento individual</h4>
-          <p>Cada atleta tem um plano, não um pacote genérico. A carreira é tratada como ativo único.</p>
-        </div>
-        <div class="diff-card">
-          <h4>Rede de contatos internacional</h4>
-          <p>Clube certo, momento certo. Oportunidade que faz sentido para a sua fase de carreira.</p>
-        </div>
-        <div class="diff-card">
-          <h4>Transparência com família e staff</h4>
-          <p>Todos os passos claros. Todos os termos explicados. Nada escondido.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section id="contato">
-    <div class="container contato-wrapper">
-      <div class="contato-left">
-        <span class="section-eyebrow">Avaliação de perfil</span>
-        <h2>Quer ser representado por uma agência de confiança e credibilidade?</h2>
-        <p>
-          Preencha o formulário e envie seu material — nossa equipe vai avaliar seu perfil com total sigilo e te responder diretamente no WhatsApp.
-        </p>
-        <p style="color:var(--accent); font-weight:500; font-size:.9rem;">
-          Atenção: só avaliamos atletas ou responsáveis legais.
-        </p>
-      </div>
-
-      <form id="leadForm">
-        <div class="form-grid form-grid-2col">
-          <div class="form-field">
-            <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
-          </div>
-
-          <div class="form-field">
-            <label for="idade">Idade *</label>
-            <input type="number" id="idade" name="idade" required placeholder="Ex: 17" min="8" max="45" />
-          </div>
-
-          <div class="form-field">
-            <label for="clube">Clube atual</label>
-            <input type="text" id="clube" name="clube" placeholder="Ex: Sub-20 / Profissional / Sem clube" />
-          </div>
-
-          <div class="form-field">
-            <label for="posicao">Posição *</label>
-            <input type="text" id="posicao" name="posicao" required placeholder="Ex: Atacante, Zagueiro..." />
-          </div>
-
-          <div class="form-field">
-            <label for="contato">Seu WhatsApp *</label>
-            <input type="tel" id="contato" name="contato" required placeholder="DDD + número" />
-          </div>
-
-          <div class="form-field">
-            <label for="instagram">Instagram / Link de vídeo *</label>
-            <input type="text" id="instagram" name="instagram" required placeholder="@usuario ou link YouTube" />
-          </div>
-        </div>
-
-        <div class="form-field" style="margin-top:1rem;">
-          <label for="mensagem">Observações adicionais</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Minutos jogados, histórico de clubes, conquistas individuais..."></textarea>
-        </div>
-
-        <div class="enviar-wrapper">
-          <button type="submit" class="btn-primary btn-whatsapp">
-            <span>📲</span>
-            <span>Enviar meu material via WhatsApp</span>
-          </button>
-        </div>
-
-        <p style="font-size:.7rem; color:var(--text-dim); margin-top:.75rem; line-height:1.4;">
-          Ao clicar em Enviar, você será direcionado ao WhatsApp com seus dados preenchidos. Basta confirmar o envio.
-        </p>
-      </form>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="legal">
-        © [Nome da Agência] – Todos os direitos reservados.<br/>
-        Agentes licenciados pela CBF | Representação e Intermediação FIFA.
-      </div>
-
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-        <a href="#">Política de Privacidade</a>
-      </nav>
-
-      <div style="color:var(--text-dim); font-size:.75rem;">
-        Este site não promete contratação. A avaliação é interna e confidencial.
-      </div>
-    </div>
+    <nav>
+      <a href="#topo">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+      <a href="#" id="openPolicy">Política de Privacidade</a>
+    </nav>
+    <div>© 2025 Agência XYZ — Todos os direitos reservados.</div>
   </footer>
 
+  <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+  <div class="modal-overlay" id="policyModal">
+    <div class="modal">
+      <button class="modal-close" id="closePolicy">&times;</button>
+      <h2>Política de Privacidade</h2>
+      <p>
+        Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações pessoais enviadas por atletas, responsáveis ou representantes através deste site.
+      </p>
+      <p>
+        As informações fornecidas no formulário (nome, idade, clube, posição, contato e links) são utilizadas exclusivamente para análise de perfil e contato da nossa equipe. Não compartilhamos dados com terceiros sem autorização.
+      </p>
+      <p>
+        O envio das informações implica consentimento com esta política. Caso queira solicitar exclusão de dados, entre em contato via WhatsApp.
+      </p>
+      <p><strong>Última atualização:</strong> Outubro de 2025.</p>
+    </div>
+  </div>
+
   <script>
-    // Ajuste com o número oficial da agência no padrão internacional:
-    // Exemplo Brasil: 55 + DDD + número (sem espaços, sem traço)
-    const WHATSAPP_NUMBER = "5599999999999";
+    // Scroll suave (para navegadores que não suportam nativo)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const targetId = this.getAttribute("href");
+        if (targetId.startsWith("#") && targetId.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    });
 
-    function encodeFormDataToWhatsApp(fields){
-      // Monta o texto que vai no WhatsApp
-      const msgLines = [
-        "*NOVO CONTATO - AVALIAÇÃO DE ATLETA*",
-        "",
-        "*Nome:* " + (fields.nome || ""),
-        "*Idade:* " + (fields.idade || ""),
-        "*Clube atual:* " + (fields.clube || ""),
-        "*Posição:* " + (fields.posicao || ""),
-        "*Contato do atleta / responsável:* " + (fields.contato || ""),
-        "*Instagram / Link de vídeo:* " + (fields.instagram || ""),
-        "",
-        "*Observações:* " + (fields.mensagem || "")
-      ];
+    // Modal Política de Privacidade
+    const modal = document.getElementById("policyModal");
+    const openBtn = document.getElementById("openPolicy");
+    const closeBtn = document.getElementById("closePolicy");
 
-      return encodeURIComponent(msgLines.join("\n"));
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", function(e){
+    openBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
 
-      const data = {
-        nome: document.getElementById("nome").value.trim(),
-        idade: document.getElementById("idade").value.trim(),
-        clube: document.getElementById("clube").value.trim(),
-        posicao: document.getElementById("posicao").value.trim(),
-        contato: document.getElementById("contato").value.trim(),
-        instagram: document.getElementById("instagram").value.trim(),
-        mensagem: document.getElementById("mensagem").value.trim()
-      };
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    });
 
-      // Validação mínima de campos obrigatórios
-      if(!data.nome || !data.idade || !data.posicao || !data.contato || !data.instagram){
-        alert("Por favor, preencha todos os campos obrigatórios (*).");
-        return;
+    // Fechar ao clicar fora
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
       }
-
-      const finalText = encodeFormDataToWhatsApp(data);
-      const waURL = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + finalText;
-
-      // Redireciona pro WhatsApp com a mensagem pronta
-      window.open(waURL, "_blank");
     });
   </script>
 
