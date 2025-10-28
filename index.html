@@ -23,6 +23,7 @@
     * {
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth; /* âncoras deslizando */
     }
 
     body {
@@ -561,12 +562,109 @@
     footer a:hover {
       color: var(--accent);
     }
+
+    /* ===== ANIMAÇÃO DE ENTRADA NAS SEÇÕES ===== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== POPUP DE POLÍTICA DE PRIVACIDADE ===== */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,10,20,0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-content {
+      background: rgba(15,23,42,0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 20px 60px rgba(0,0,0,.8);
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      color: var(--text-light);
+      position: relative;
+      text-align: left;
+      overflow-y: auto;
+      max-height: 80vh;
+      transform: scale(.9);
+      transition: transform .35s ease;
+    }
+
+    .popup-overlay.active .popup-content {
+      transform: scale(1);
+    }
+
+    .popup-content h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .popup-content p {
+      font-size: .9rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--stroke);
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+      transition: all .15s linear;
+    }
+
+    .close-popup:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0,255,133,.25);
+    }
+
+    /* link política vira acionador */
+    footer a[href="#politica"] {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" data-animate>
     <div class="container hero-grid">
       <div class="hero-copy">
         <div class="badge-line">
@@ -592,7 +690,7 @@
         </div>
       </div>
 
-      <div class="hero-card">
+      <div class="hero-card" data-animate>
         <div class="mini-block">
           <div class="mini-label">Atletas assessorados</div>
           <div class="mini-value">+XX atletas em base e profissional</div>
@@ -610,7 +708,7 @@
   </header>
 
   <!-- SOBRE -->
-  <section id="sobre">
+  <section id="sobre" data-animate>
     <div class="container sobre-grid">
       <div class="section-head">
         <span class="section-eyebrow">Quem somos</span>
@@ -635,7 +733,7 @@
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos">
+  <section id="servicos" data-animate>
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">O que fazemos</span>
@@ -644,22 +742,22 @@
       </div>
 
       <div class="servicos-grid">
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <div class="icon-circle">📈</div>
           <h3>Gestão de Carreira</h3>
           <p>Planejamento estratégico de evolução profissional e financeira, passo a passo, fase a fase.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <div class="icon-circle">🤝</div>
           <h3>Intermediação e Transferências</h3>
           <p>Negociação de contratos e oportunidades no Brasil e exterior, com credibilidade de mercado.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <div class="icon-circle">🎯</div>
           <h3>Mentoria e Formação</h3>
           <p>Suporte técnico, emocional e de imagem para jovens atletas e suas famílias.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-animate>
           <div class="icon-circle">📸</div>
           <h3>Gestão de Imagem e Mídia</h3>
           <p>Posicionamento de marca pessoal, mídia social, aparições e parcerias comerciais.</p>
@@ -669,7 +767,7 @@
   </section>
 
   <!-- PARA QUEM -->
-  <section id="publicos">
+  <section id="publicos" data-animate>
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">Para quem atuamos</span>
@@ -678,17 +776,17 @@
       </div>
 
       <div class="publicos-grid">
-        <div class="publico-card">
+        <div class="publico-card" data-animate>
           <h4><span class="emoji">⚽️</span>Profissionais</h4>
           <p>Gestão de contratos, transferências e expansão internacional. Blindagem de imagem e suporte jurídico.</p>
         </div>
 
-        <div class="publico-card">
+        <div class="publico-card" data-animate>
           <h4><span class="emoji">👟</span>Jovens talentos (base)</h4>
           <p>Planejamento de carreira, vitrine esportiva, preparação mental e orientação familiar para a transição ao profissional.</p>
         </div>
 
-        <div class="publico-card">
+        <div class="publico-card" data-animate>
           <h4><span class="emoji">👨‍👩‍👦</span>Pais e responsáveis</h4>
           <p>Transparência, segurança jurídica e acompanhamento contínuo. Nada acontece sem você saber.</p>
         </div>
@@ -697,7 +795,7 @@
   </section>
 
   <!-- PROVA SOCIAL -->
-  <section id="resultados">
+  <section id="resultados" data-animate>
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">Resultados reais</span>
@@ -706,7 +804,7 @@
       </div>
 
       <div class="prova-wrapper">
-        <div class="quote-card">
+        <div class="quote-card" data-animate>
           <div class="quote-mark">“</div>
           <div class="quote-text">
             Desde o início, a agência acreditou em mim e cuidou de tudo para que eu focasse apenas em jogar.
@@ -716,7 +814,7 @@
           </div>
         </div>
 
-        <div class="logos-card">
+        <div class="logos-card" data-animate>
           <div class="logo-item">[CLUBE PARCEIRO]</div>
           <div class="logo-item">[CLUBE PARCEIRO]</div>
           <div class="logo-item">[CLUBE PARCEIRO]</div>
@@ -727,7 +825,7 @@
   </section>
 
   <!-- DIFERENCIAIS -->
-  <section id="diferenciais">
+  <section id="diferenciais" data-animate>
     <div class="container">
       <div class="section-head">
         <span class="section-eyebrow">Por que escolher a gente</span>
@@ -736,27 +834,27 @@
       </div>
 
       <div class="diff-grid">
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Credenciados oficialmente pela CBF</h4>
           <p>Atuação regulamentada e dentro das normas da entidade máxima do futebol brasileiro.</p>
         </div>
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Acesso direto ao mercado FIFA</h4>
           <p>Networking internacional ativo, com portas abertas em clubes e empresários fora do país.</p>
         </div>
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Equipe com experiência dentro e fora de campo</h4>
           <p>Visão esportiva + visão de negócio. Proteção jurídica e planejamento financeiro.</p>
         </div>
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Atendimento individual</h4>
           <p>Cada atleta tem um plano, não um pacote genérico. A carreira é tratada como ativo único.</p>
         </div>
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Rede de contatos internacional</h4>
           <p>Clube certo, momento certo. Oportunidade que faz sentido para a sua fase de carreira.</p>
         </div>
-        <div class="diff-card">
+        <div class="diff-card" data-animate>
           <h4>Transparência com família e staff</h4>
           <p>Todos os passos claros. Todos os termos explicados. Nada escondido.</p>
         </div>
@@ -765,7 +863,7 @@
   </section>
 
   <!-- CONTATO -->
-  <section id="contato">
+  <section id="contato" data-animate>
     <div class="container contato-wrapper">
       <div class="contato-left">
         <span class="section-eyebrow">Avaliação de perfil</span>
@@ -832,7 +930,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer data-animate>
     <div class="footer-inner">
       <div class="legal">
         © [Nome da Agência] – Todos os direitos reservados.<br/>
@@ -843,7 +941,7 @@
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
         <a href="#contato">Contato</a>
-        <a href="#">Política de Privacidade</a>
+        <a href="#politica" id="openPolicyLink">Política de Privacidade</a>
       </nav>
 
       <div style="color:var(--text-dim); font-size:.75rem;">
@@ -852,13 +950,31 @@
     </div>
   </footer>
 
+  <!-- POPUP POLÍTICA DE PRIVACIDADE -->
+  <div class="popup-overlay" id="policyPopup">
+    <div class="popup-content">
+      <button class="close-popup" id="closePopup" aria-label="Fechar política">✕</button>
+      <h3>Política de Privacidade</h3>
+      <p>
+        Respeitamos sua privacidade e garantimos que todos os dados enviados através deste formulário serão utilizados
+        apenas para avaliação de perfil e contato com o atleta ou seu responsável legal.
+      </p>
+      <p>
+        Não compartilhamos informações com terceiros sem autorização. O envio do formulário implica consentimento com estes termos.
+      </p>
+      <p>
+        Caso você queira solicitar a remoção dos seus dados do nosso histórico interno, basta nos informar pelo WhatsApp informado neste site.
+      </p>
+    </div>
+  </div>
+
   <script>
     // Ajuste com o número oficial da agência no padrão internacional:
     // Exemplo Brasil: 55 + DDD + número (sem espaços, sem traço)
     const WHATSAPP_NUMBER = "5599999999999";
 
+    // Monta mensagem para WhatsApp
     function encodeFormDataToWhatsApp(fields){
-      // Monta o texto que vai no WhatsApp
       const msgLines = [
         "*NOVO CONTATO - AVALIAÇÃO DE ATLETA*",
         "",
@@ -871,10 +987,10 @@
         "",
         "*Observações:* " + (fields.mensagem || "")
       ];
-
       return encodeURIComponent(msgLines.join("\n"));
     }
 
+    // Envio do formulário para o WhatsApp
     document.getElementById("leadForm").addEventListener("submit", function(e){
       e.preventDefault();
 
@@ -896,10 +1012,42 @@
 
       const finalText = encodeFormDataToWhatsApp(data);
       const waURL = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + finalText;
-
-      // Redireciona pro WhatsApp com a mensagem pronta
       window.open(waURL, "_blank");
     });
+
+    // Popup de Política de Privacidade
+    const popup = document.getElementById("policyPopup");
+    const openPolicyLink = document.getElementById("openPolicyLink");
+    const closePopupBtn = document.getElementById("closePopup");
+
+    openPolicyLink.addEventListener("click", function(e){
+      e.preventDefault();
+      popup.classList.add("active");
+    });
+
+    closePopupBtn.addEventListener("click", function(){
+      popup.classList.remove("active");
+    });
+
+    // fechar clicando fora do card
+    popup.addEventListener("click", function(e){
+      if(e.target === popup){
+        popup.classList.remove("active");
+      }
+    });
+
+    // Animações ao rolar (IntersectionObserver)
+    const animatedElements = document.querySelectorAll("[data-animate]");
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    animatedElements.forEach(el=>observer.observe(el));
   </script>
 
 </body>
