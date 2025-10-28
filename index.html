@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agência de Intermediação de Atletas • Gestão de Carreira Profissional</title>
-  <meta name="description" content="Agência credenciada pela CBF e conectada ao mercado FIFA. Gestão, representação e intermediação de atletas de futebol no Brasil e exterior.">
+  <title>Potencial Soccer • Gestão e Intermediação de Atletas Profissionais</title>
+  <meta name="description" content="Potencial Soccer é uma agência credenciada pela CBF e conectada ao mercado FIFA. Especializada em gestão e intermediação de atletas de futebol no Brasil e exterior.">
   <style>
     :root {
       --bg-dark: #0f172a;
@@ -16,14 +16,12 @@
       --stroke: rgba(255,255,255,0.08);
       --radius-lg: 20px;
       --radius-sm: 10px;
-      --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-primary: 'Inter', system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -33,14 +31,15 @@
       line-height: 1.5;
     }
 
-    /* ---------------------------- HERO + GERAL */
-    .container { max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem; }
     h1,h2,h3,h4 { margin: 0 0 .5em; font-weight: 600; color: var(--text-light); }
     p { color: var(--text-dim); margin: 0 0 1em; }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-dark); }
 
+    .container { max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    /* Botões */
     .btn-primary {
       background: var(--accent);
       color: #000;
@@ -55,15 +54,71 @@
     }
     .btn-primary:hover { background: var(--accent-dark); }
 
-    /* ---------------------------- FOOTER */
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-sm);
+      color: var(--text-light);
+      padding: .9rem 1.2rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.05); }
+
+    /* Hero */
+    header.hero {
+      background: radial-gradient(circle at 20% 20%, rgba(0,255,133,0.12) 0%, rgba(15,23,42,0) 60%),
+                  linear-gradient(to bottom right,#0f172a 20%,#1e2538 100%);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media(min-width:768px){
+      .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+
+    /* Formulário */
+    form {
+      background: rgba(0,0,0,.2);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    label {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: .4rem;
+    }
+    input, textarea {
+      width: 100%;
+      background: rgba(15,23,42,.6);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-sm);
+      color: var(--text-light);
+      padding: .8rem;
+      font-family: var(--font-primary);
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(0,255,133,.12);
+    }
+    textarea { min-height: 80px; resize: vertical; }
+
+    /* Footer */
     footer {
       background: #0b1220;
       color: var(--text-dim);
       font-size: .8rem;
-      padding: 2rem 1.5rem 4rem;
       text-align: center;
+      padding: 2rem 1.5rem 4rem;
     }
-
     footer nav {
       display: flex;
       flex-wrap: wrap;
@@ -71,13 +126,13 @@
       gap: 1rem 2rem;
       margin-bottom: 1rem;
     }
-    footer a { color: var(--text-light); text-decoration: none; }
+    footer a { color: var(--text-light); }
     footer a:hover { color: var(--accent); }
 
-    /* ---------------------------- MODAL POLÍTICA */
+    /* Modal Política */
     .modal-overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: rgba(0,0,0,0.7);
       display: none;
       align-items: center;
@@ -85,7 +140,6 @@
       z-index: 9999;
       backdrop-filter: blur(6px);
     }
-
     .modal {
       background: var(--bg-card);
       color: var(--text-light);
@@ -99,52 +153,84 @@
       position: relative;
       animation: fadeIn .3s ease;
     }
-
     @keyframes fadeIn {
       from { transform: scale(.95); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-
-    .modal h2 { font-size: 1.3rem; margin-bottom: .75rem; }
-    .modal p { font-size: .9rem; line-height: 1.6; margin-bottom: 1rem; }
-
     .modal-close {
       position: absolute;
       top: 1rem; right: 1rem;
-      background: none;
-      border: none;
+      background: none; border: none;
       color: var(--text-dim);
       font-size: 1.5rem;
       cursor: pointer;
-      transition: color .2s;
     }
     .modal-close:hover { color: var(--accent); }
   </style>
 </head>
+
 <body>
 
-  <!-- Simulação do conteúdo principal -->
-  <header id="topo" class="container">
-    <h1>Transformamos talento em carreira profissional</h1>
-    <p>Agência credenciada pela CBF e com parceiros FIFA, especializada em gestão e intermediação de atletas.</p>
-    <a href="#contato" class="btn-primary">Enviar meu material</a>
+  <!-- HERO -->
+  <header id="topo" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Potencial Soccer</h1>
+        <p>Transformamos talento em carreira profissional.<br>
+        Agência credenciada pela CBF e com parceiros FIFA, especializada em gestão e intermediação de atletas de futebol no Brasil e no exterior.</p>
+        <a href="#contato" class="btn-primary">Enviar meu material</a>
+        <a href="#sobre" class="btn-outline">Saber mais</a>
+      </div>
+      <div>
+        <p><strong>+XX atletas assessorados</strong><br>Negociações nacionais e internacionais.</p>
+      </div>
+    </div>
   </header>
 
+  <!-- SOBRE -->
   <section id="sobre" class="container">
-    <h2>Sobre a Agência</h2>
-    <p>Fundada por agentes credenciados pela CBF, atuamos com atletas em todas as fases da carreira.</p>
+    <h2>Quem somos</h2>
+    <p>A Potencial Soccer é uma agência especializada em representação e gestão de atletas. Credenciada pela CBF e conectada ao mercado FIFA, nossa equipe atua em todas as etapas da carreira: da base ao futebol profissional internacional.</p>
   </section>
 
+  <!-- SERVIÇOS -->
   <section id="servicos" class="container">
     <h2>O que fazemos</h2>
-    <p>Gestão de carreira, intermediação e transferência de atletas para o mercado nacional e internacional.</p>
+    <p>Gestão de carreira, intermediação e transferências, mentoria e posicionamento de imagem — cuidamos da trajetória completa do atleta com credibilidade e estratégia.</p>
   </section>
 
+  <!-- CONTATO -->
   <section id="contato" class="container">
-    <h2>Entre em contato</h2>
-    <p>Preencha o formulário e envie seu material para avaliação.</p>
+    <h2>Envie seu material</h2>
+    <p>Preencha o formulário e nossa equipe entrará em contato para análise do seu perfil.</p>
+
+    <form id="leadForm">
+      <label for="nome">Nome completo *</label>
+      <input type="text" id="nome" required placeholder="Seu nome">
+
+      <label for="idade">Idade *</label>
+      <input type="number" id="idade" required placeholder="Ex: 17">
+
+      <label for="clube">Clube atual</label>
+      <input type="text" id="clube" placeholder="Ex: Sub-20 / Profissional / Sem clube">
+
+      <label for="posicao">Posição *</label>
+      <input type="text" id="posicao" required placeholder="Ex: Atacante, Zagueiro...">
+
+      <label for="contato">WhatsApp *</label>
+      <input type="tel" id="contato" required placeholder="DDD + número">
+
+      <label for="instagram">Instagram / Link de vídeo *</label>
+      <input type="text" id="instagram" required placeholder="@usuario ou link">
+
+      <label for="mensagem">Observações</label>
+      <textarea id="mensagem" placeholder="Histórico de clubes, minutos jogados, conquistas..."></textarea>
+
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem;">📲 Enviar via WhatsApp</button>
+    </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <nav>
       <a href="#topo">Início</a>
@@ -153,43 +239,55 @@
       <a href="#contato">Contato</a>
       <a href="#" id="openPolicy">Política de Privacidade</a>
     </nav>
-    <div>© 2025 Agência XYZ — Todos os direitos reservados.</div>
+    <div>© 2025 Potencial Soccer — Todos os direitos reservados.<br>Agentes licenciados pela CBF | Representação e Intermediação FIFA.</div>
   </footer>
 
-  <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+  <!-- MODAL POLÍTICA -->
   <div class="modal-overlay" id="policyModal">
     <div class="modal">
       <button class="modal-close" id="closePolicy">&times;</button>
       <h2>Política de Privacidade</h2>
-      <p>
-        Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações pessoais enviadas por atletas, responsáveis ou representantes através deste site.
-      </p>
-      <p>
-        As informações fornecidas no formulário (nome, idade, clube, posição, contato e links) são utilizadas exclusivamente para análise de perfil e contato da nossa equipe. Não compartilhamos dados com terceiros sem autorização.
-      </p>
-      <p>
-        O envio das informações implica consentimento com esta política. Caso queira solicitar exclusão de dados, entre em contato via WhatsApp.
-      </p>
+      <p>Esta Política de Privacidade explica como a Potencial Soccer coleta, utiliza e protege os dados enviados por atletas, responsáveis ou representantes através deste site.</p>
+      <p>Os dados fornecidos (nome, idade, clube, posição, contato, links e observações) são utilizados exclusivamente para análise de perfil e retorno de contato. Nenhuma informação é compartilhada com terceiros sem autorização expressa.</p>
+      <p>O envio das informações implica consentimento com esta política. Você pode solicitar a exclusão dos seus dados a qualquer momento pelo WhatsApp oficial da Potencial Soccer.</p>
       <p><strong>Última atualização:</strong> Outubro de 2025.</p>
     </div>
   </div>
 
   <script>
-    // Scroll suave (para navegadores que não suportam nativo)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        const targetId = this.getAttribute("href");
-        if (targetId.startsWith("#") && targetId.length > 1) {
-          e.preventDefault();
-          const target = document.querySelector(targetId);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      });
+    // Número fictício — substitua depois:
+    const WHATSAPP_NUMBER = "5599999999999";
+
+    // Envio para WhatsApp
+    document.getElementById("leadForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const idade = document.getElementById("idade").value.trim();
+      const clube = document.getElementById("clube").value.trim();
+      const posicao = document.getElementById("posicao").value.trim();
+      const contato = document.getElementById("contato").value.trim();
+      const instagram = document.getElementById("instagram").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+
+      if(!nome || !idade || !posicao || !contato || !instagram){
+        alert("Por favor, preencha todos os campos obrigatórios (*).");
+        return;
+      }
+
+      const texto = `
+*NOVO CONTATO - POTENCIAL SOCCER*%0A%0A
+*Nome:* ${nome}%0A
+*Idade:* ${idade}%0A
+*Clube atual:* ${clube}%0A
+*Posição:* ${posicao}%0A
+*WhatsApp:* ${contato}%0A
+*Instagram / Vídeo:* ${instagram}%0A%0A
+*Observações:* ${mensagem}
+      `;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`, "_blank");
     });
 
-    // Modal Política de Privacidade
+    // Modal Política
     const modal = document.getElementById("policyModal");
     const openBtn = document.getElementById("openPolicy");
     const closeBtn = document.getElementById("closePolicy");
@@ -205,7 +303,6 @@
       document.body.style.overflow = "";
     });
 
-    // Fechar ao clicar fora
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.style.display = "none";
