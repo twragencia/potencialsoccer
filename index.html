@@ -20,443 +20,325 @@
       --radius-sm:12px;
       --container:1280px;
     }
-    *{box-sizing:border-box; -webkit-font-smoothing:antialiased; scroll-behavior:smooth;}
-    body{margin:0; background:var(--azul); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55;}
-    img{max-width:100%; display:block;}
-    h1,h2,h3,h4{margin:0 0 .5em; letter-spacing:-.02em;}
+    *{box-sizing:border-box;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+    body{margin:0;background:var(--azul);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;}
+    img{max-width:100%;display:block;}
+    h1,h2,h3,h4{margin:0 0 .5em;letter-spacing:-.02em;}
     h1{font-weight:800;}
     h2{font-weight:700;}
-    p{margin:0 0 1em; color:var(--text-dim);}
-    a{text-decoration:none; color:inherit;}
-
-    .container{max-width:var(--container); margin:0 auto; padding:3rem 1.5rem;}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.95rem 1.25rem; border-radius:12px; font-weight:600; cursor:pointer; transition:.2s ease; border:1px solid transparent;}
-    .btn-primary{background:var(--bege); color:#0B0E14;}
+    p{margin:0 0 1em;color:var(--text-dim);}
+    a{text-decoration:none;color:inherit;}
+    .container{max-width:var(--container);margin:0 auto;padding:3rem 1.5rem;}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.25rem;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s ease;border:1px solid transparent;}
+    .btn-primary{background:var(--bege);color:#0B0E14;}
     .btn-primary:hover{filter:brightness(.95);}
-    .btn-outline{border-color:var(--stroke); color:var(--text); background:transparent;}
+    .btn-outline{border-color:var(--stroke);color:var(--text);background:transparent;}
     .btn-outline:hover{background:rgba(255,255,255,.06);}
 
-    /* Hero */
-    .hero{
-      position:relative; overflow:hidden; border-bottom:1px solid var(--stroke);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(176,166,149,.10) 0%, rgba(12,21,47,0) 55%),
-        linear-gradient(180deg, rgba(12,21,47,1) 0%, rgba(12,21,47,.92) 100%);
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--stroke);
+      background:radial-gradient(circle at 20% 10%, rgba(176,166,149,.10) 0%, rgba(12,21,47,0) 55%),linear-gradient(180deg, rgba(12,21,47,1) 0%, rgba(12,21,47,.92) 100%);
     }
-    .hero-grid{display:grid; gap:2rem; grid-template-columns:1fr; align-items:center;}
+    .hero-grid{display:grid;gap:2rem;grid-template-columns:1fr;align-items:center;}
     @media(min-width:980px){.hero-grid{grid-template-columns:1.1fr .9fr;}}
-    .hero h1{font-size:clamp(2.1rem,1.9vw + 1.6rem,3.2rem); color:var(--text);}
-    .hero .lead{font-size:1.1rem; max-width:48rem;}
-    .hero-media{
-      border:1px solid var(--stroke); border-radius:var(--radius-lg); overflow:hidden; position:relative;
-      box-shadow:0 20px 60px rgba(0,0,0,.35);
-    }
-    .hero-media::after{ /* vinheta suave */
-      content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(12,21,47,.85) 0%, rgba(12,21,47,0) 60%);
-    }
-
-    /* Section generic */
-    section{border-bottom:1px solid var(--stroke); background:radial-gradient(1200px 500px at 0% 0%, rgba(176,166,149,.05), transparent 60%);}
-    .eyebrow{display:block; font-size:.8rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--bege); margin-bottom:.5rem;}
-    .grid-2{display:grid; gap:2rem; grid-template-columns:1fr;}
+    .hero h1{font-size:clamp(2.1rem,1.9vw + 1.6rem,3.2rem);color:var(--text);}
+    .hero .lead{font-size:1.1rem;max-width:48rem;}
+    .hero-media{border:1px solid var(--stroke);border-radius:var(--radius-lg);overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.35);}
+    .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,21,47,.85) 0%, rgba(12,21,47,0) 60%);}
+    section{border-bottom:1px solid var(--stroke);background:radial-gradient(1200px 500px at 0% 0%, rgba(176,166,149,.05), transparent 60%);}
+    .eyebrow{display:block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bege);margin-bottom:.5rem;}
+    .grid-2{display:grid;gap:2rem;grid-template-columns:1fr;}
     @media(min-width:980px){.grid-2{grid-template-columns:1fr 1fr;}}
-    .card{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.25rem 1.25rem 1.5rem;}
-
-    /* Fundadores / Partner */
-    .people{display:grid; grid-template-columns:1fr; gap:1.5rem;}
+    .card{background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:1.25rem 1.25rem 1.5rem;}
+    .people{display:grid;grid-template-columns:1fr;gap:1.5rem;}
     @media(min-width:900px){.people{grid-template-columns:repeat(2,1fr);}}
-    .person{display:grid; grid-template-columns:92px auto; gap:1rem; align-items:start; background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1rem 1.25rem;}
-    .avatar{width:92px; height:92px; border-radius:50%; overflow:hidden; border:3px solid var(--bege-70);}
-    .person h4{margin:0 0 .25rem; font-size:1.05rem; color:var(--text); font-weight:700;}
-    .person small{display:block; color:var(--bege); font-weight:600; margin-bottom:.35rem;}
-    .partner-banner{border:1px solid var(--stroke); border-radius:var(--radius-lg); overflow:hidden;}
-
-    /* Serviços / Diferenças */
-    .features{display:grid; gap:1rem; grid-template-columns:1fr;}
+    .person{display:grid;grid-template-columns:92px auto;gap:1rem;align-items:start;background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:1rem 1.25rem;}
+    .avatar{width:92px;height:92px;border-radius:50%;overflow:hidden;border:3px solid var(--bege-70);}
+    .person h4{margin:0 0 .25rem;font-size:1.05rem;color:var(--text);font-weight:700;}
+    .person small{display:block;color:var(--bege);font-weight:600;margin-bottom:.35rem;}
+    .partner-banner{border:1px solid var(--stroke);border-radius:var(--radius-lg);overflow:hidden;}
+    .features{display:grid;gap:1rem;grid-template-columns:1fr;}
     @media(min-width:760px){.features{grid-template-columns:repeat(2,1fr);}}
     @media(min-width:1160px){.features{grid-template-columns:repeat(3,1fr);}}
-    .feature{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.25rem;}
-    .feature h4{font-size:1rem; margin-bottom:.5rem;}
-
-    /* Segmentação */
-    .segments{display:grid; gap:1rem; grid-template-columns:1fr;}
-    @media(min-width:900px){.segments{grid-template-columns:repeat(3,1fr);} }
-
-    /* Depoimento / Provas */
-    .quote{position:relative; padding:1.5rem; border:1px solid var(--stroke); border-radius:var(--radius-lg); background:rgba(255,255,255,.03);}
-    .quote:before{content:"“"; position:absolute; left:14px; top:6px; color:var(--bege); font-size:2rem; line-height:1;}
-    .logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem;}
-    .logo{border:1px solid var(--stroke); border-radius:12px; padding:1rem; text-align:center; color:var(--text-dim);}
-
-    /* Form */
-    .form{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.5rem;}
-    .form-grid{display:grid; gap:1rem; grid-template-columns:1fr;}
+    .feature{background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:1.25rem;}
+    .feature h4{font-size:1rem;margin-bottom:.5rem;}
+    .segments{display:grid;gap:1rem;grid-template-columns:1fr;}
+    @media(min-width:900px){.segments{grid-template-columns:repeat(3,1fr);}}
+    .quote{position:relative;padding:1.5rem;border:1px solid var(--stroke);border-radius:var(--radius-lg);background:rgba(255,255,255,.03);}
+    .logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;}
+    .logo{border:1px solid var(--stroke);border-radius:12px;padding:1rem;text-align:center;color:var(--text-dim);}
+    .form{background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:1.5rem;}
+    .form-grid{display:grid;gap:1rem;grid-template-columns:1fr;}
     @media(min-width:720px){.form-grid{grid-template-columns:1fr 1fr;}}
-    label{font-size:.85rem; font-weight:600; color:var(--text);}
-    input,textarea{width:100%; padding:.85rem .85rem; border-radius:12px; border:1px solid var(--stroke); background:rgba(12,21,47,.6); color:var(--text); font-size:.95rem; outline:none;}
-    input:focus,textarea:focus{border-color:var(--bege); box-shadow:0 0 0 4px rgba(176,166,149,.15);}
-    textarea{min-height:110px; resize:vertical;}
-
-    /* Footer */
-    footer{background:#0A1227; border-top:1px solid var(--stroke); color:var(--text-dim); text-align:center;}
-    footer nav{display:flex; flex-wrap:wrap; gap:1rem 2rem; justify-content:center; margin:1rem 0;}
+    label{font-size:.85rem;font-weight:600;color:var(--text);}
+    input,textarea{width:100%;padding:.85rem .85rem;border-radius:12px;border:1px solid var(--stroke);background:rgba(12,21,47,.6);color:var(--text);font-size:.95rem;outline:none;}
+    input:focus,textarea:focus{border-color:var(--bege);box-shadow:0 0 0 4px rgba(176,166,149,.15);}
+    textarea{min-height:110px;resize:vertical;}
+    footer{background:#0A1227;border-top:1px solid var(--stroke);color:var(--text-dim);text-align:center;}
+    footer nav{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:center;margin:1rem 0;}
     footer a:hover{color:var(--bege);}
-
-    /* Animations */
-    [data-animate]{opacity:0; transform:translateY(36px); transition:all .8s ease;}
-    [data-animate].visible{opacity:1; transform:translateY(0);}
-
-    /* Privacy Popup */
-    .popup{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:9999; opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease;}
-    .popup.active{opacity:1; visibility:visible;}
-    .popup::before{content:""; position:absolute; inset:0; background:rgba(6,10,20,.62); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);}
-    .popup-card{position:relative; width:min(620px,92%); background:rgba(17,26,47,.95); border:1px solid var(--stroke); border-radius:20px; padding:1.6rem; box-shadow:0 30px 80px rgba(0,0,0,.6); transform:scale(.96); transition:transform .25s ease;}
+    [data-animate]{opacity:0;transform:translateY(36px);transition:all .8s ease;}
+    [data-animate].visible{opacity:1;transform:translateY(0);}
+    .popup{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;}
+    .popup.active{opacity:1;visibility:visible;}
+    .popup::before{content:"";position:absolute;inset:0;background:rgba(6,10,20,.62);backdrop-filter:blur(7px);}
+    .popup-card{position:relative;width:min(620px,92%);background:rgba(17,26,47,.95);border:1px solid var(--stroke);border-radius:20px;padding:1.6rem;box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.96);transition:transform .25s ease;}
     .popup.active .popup-card{transform:scale(1);}
-    .popup-card h3{margin:0 0 .5rem; color:var(--text); font-size:1.25rem;}
-    .popup-close{position:absolute; right:12px; top:12px; width:34px; height:34px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid var(--stroke); color:var(--text); font-weight:700; display:flex; align-items:center; justify-content:center; cursor:pointer;}
-    .popup-close:hover{color:var(--bege); background:rgba(255,255,255,.1);}
+    .popup-close{position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--stroke);color:var(--text);font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+    .popup-close:hover{color:var(--bege);background:rgba(255,255,255,.1);}
+    
+    /* ====== CARROSSEL (FADE EFFECT) ====== */
+    .carousel {
+      position: relative;
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.03);
+      padding: 2rem;
+      margin-top: 1.5rem;
+      min-height: 180px;
+      overflow: hidden;
+    }
+
+    .carousel .quote {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .carousel .quote.active {
+      opacity: 1;
+      transform: scale(1);
+      position: relative;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--stroke);
+      color: var(--bege);
+      font-size: 1.6rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .25s ease;
+      z-index: 5;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255,255,255,.15);
+      color: var(--text);
+    }
+
+    .carousel-btn.prev { left: -10px; }
+    .carousel-btn.next { right: -10px; }
+
+    @media (max-width: 600px) {
+      .carousel { padding: 1.25rem; }
+      .carousel-btn.prev { left: 4px; }
+      .carousel-btn.next { right: 4px; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- HERO -->
-  <header class="hero" id="topo">
-    <div class="container hero-grid">
-      <div data-animate>
-        <span class="eyebrow">Potential Soccer</span>
-        <h1>Agência Potential Soccer – Conectando Talentos ao Alto Desempenho</h1>
-        <p class="lead">Representamos atletas com excelência, planejamento estratégico de carreira e oportunidades reais de crescimento nacional e internacional.</p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
-          <a href="#formulario" class="btn btn-primary">Quero ser representado</a>
-          <a href="#contato-clubes" class="btn btn-outline">Sou clube / patrocinador</a>
-        </div>
-      </div>
-
-      <!-- Imagem hero (provisória). Troque por seu banner -->
-      <div class="hero-media" data-animate>
-        <img alt="Atleta comemorando gol" 
-             src="https://images.unsplash.com/photo-1593349481035-5c71f3d76c6c?q=80&w=1820&auto=format&fit=crop"/>
-        <!-- Dica: substitua pelo banner real (ex.: /img/hero.jpg) -->
+<header class="hero" id="topo">
+  <div class="container hero-grid">
+    <div data-animate>
+      <span class="eyebrow">Potential Soccer</span>
+      <h1>Agência Potential Soccer – Conectando Talentos ao Alto Desempenho</h1>
+      <p class="lead">Representamos atletas com excelência, planejamento estratégico de carreira e oportunidades reais de crescimento nacional e internacional.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem;">
+        <a href="#formulario" class="btn btn-primary">Quero ser representado</a>
+        <a href="#contato-clubes" class="btn btn-outline">Sou clube / patrocinador</a>
       </div>
     </div>
-  </header>
-
-  <!-- SOBRE A AGÊNCIA -->
-  <section id="sobre">
-    <div class="container grid-2">
-      <div data-animate>
-        <span class="eyebrow">Quem Somos</span>
-        <h2>Nossa agência existe para transformar talento em carreira sustentável</h2>
-        <p>Somos especialistas em desenvolvimento, gestão e representação de atletas. Operamos com visão de longo prazo, transparência e profissionalismo — combinando negociação de contratos, marketing esportivo, assessoria de imagem, performance e planejamento de carreira.</p>
-      </div>
-      <div class="card" data-animate>
-        <h3 style="color:var(--bege); margin-bottom:.5rem;">Como atuamos</h3>
-        <p>Atendimento próximo ao atleta e família, leitura de cenário e relações com clubes no Brasil e exterior. Cada atleta recebe um plano individual com metas claras de evolução técnica, tática, mental e de imagem, conectado ao momento do mercado.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FUNDADORES -->
-  <section id="fundadores">
-    <div class="container">
-      <span class="eyebrow">Fundadores</span>
-      <h2 style="margin-bottom:1rem;">Conheça quem está por trás da agência</h2>
-
-      <div class="people" data-animate>
-        <!-- Pessoa 1 -->
-        <article class="person">
-          <div class="avatar">
-            <!-- Trocar por foto real -->
-            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&h=400&fit=crop" alt="Foto do fundador 1">
-          </div>
-          <div>
-            <h4>Douglas Vieira</h4>
-            <small>Diretor de Futebol</small>
-            <p>Ex-atleta com vivência internacional. Atua em prospecção de talentos, relacionamento com clubes e apoio estratégico nas negociações da agência.</p>
-          </div>
-        </article>
-
-        <!-- Pessoa 2 -->
-        <article class="person">
-          <div class="avatar">
-            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&h=400&fit=crop" alt="Foto do fundador 2">
-          </div>
-          <div>
-            <h4>Silvio Junior</h4>
-            <small>Diretor Executivo</small>
-            <p>Gestor com sólida experiência empresarial. Responsável por estratégia, novos negócios e estrutura financeira — garantindo eficiência e crescimento sustentável.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNER / MENTOR -->
-  <section id="partner">
-    <div class="container grid-2">
-      <div data-animate>
-        <span class="eyebrow">Nosso Partner</span>
-        <h2>Conexões reais e negociações estratégicas</h2>
-        <p>Responsável por relacionamento com clubes e departamentos esportivos, trazendo portas abertas e velocidade às conversas certas — onde talento e oportunidade se encontram.</p>
-        <div class="card" style="margin-top:1rem;">
-          <h3 style="margin-bottom:.25rem; color:var(--text);">Nome do Partner</h3>
-          <p style="margin:0;">Relações com Clubes & Scouting</p>
-        </div>
-      </div>
-      <!-- Banner grande do partner (provisório) -->
-      <div class="partner-banner" data-animate>
-        <img src="https://images.unsplash.com/photo-1509035170230-84e5fda0f112?q=80&w=1800&auto=format&fit=crop" alt="Parceiro da agência em campo">
-      </div>
-    </div>
-  </section>
-
-  <!-- COMO TRABALHAMOS / DIFERENCIAIS -->
-  <section id="metodologia">
-    <div class="container">
-      <span class="eyebrow">Nossa forma de representar</span>
-      <h2>Nossa metodologia coloca o atleta no centro e o mercado na mesa</h2>
-      <div class="features" style="margin-top:1rem;">
-        <div class="feature" data-animate>
-          <h4>Mapeamento de perfil & plano individual</h4>
-          <p>Objetivos por fase da carreira, calendário competitivo e rotas de exposição.</p>
-        </div>
-        <div class="feature" data-animate>
-          <h4>Networking com clubes & treinadores</h4>
-          <p>Relacionamentos ativos no Brasil e no exterior para a oportunidade certa.</p>
-        </div>
-        <div class="feature" data-animate>
-          <h4>Imagem & posicionamento</h4>
-          <p>Gestão de marca pessoal, mídia e parcerias comerciais.</p>
-        </div>
-        <div class="feature" data-animate>
-          <h4>Performance integral</h4>
-          <p>Acompanhamento físico e psicológico (quando aplicável) para evolução consistente.</p>
-        </div>
-        <div class="feature" data-animate>
-          <h4>Negociação de contratos e incentivos</h4>
-          <p>Segurança jurídica, análise de cláusulas e proteção de longo prazo.</p>
-        </div>
-        <div class="feature" data-animate>
-          <h4>Foco total no desempenho</h4>
-          <p>Você joga. A gente cuida do resto, com transparência e estratégia.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEGMENTAÇÃO (Para quem atuamos) -->
-  <section id="segmentos">
-    <div class="container">
-      <span class="eyebrow">Para quem atuamos</span>
-      <div class="segments" style="margin-top:1rem;">
-        <div class="card" data-animate>
-          <h3 style="margin-bottom:.35rem;">⚽ Profissionais</h3>
-          <p>Gestão de contratos, transferência e expansão internacional. Blindagem de imagem e suporte jurídico.</p>
-        </div>
-        <div class="card" data-animate>
-          <h3 style="margin-bottom:.35rem;">👟 Jovens talentos (base)</h3>
-          <p>Planejamento de carreira, vitrine esportiva, preparação mental e orientação familiar para a transição ao profissional.</p>
-        </div>
-        <div class="card" data-animate>
-          <h3 style="margin-bottom:.35rem;">👨‍👩‍👦 Pais e responsáveis</h3>
-          <p>Transparência, segurança jurídica e acompanhamento contínuo. Todos os passos claros.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTADOS / PROVAS -->
-  <section id="cases">
-    <div class="container grid-2">
-      <div data-animate>
-        <span class="eyebrow">Resultados e histórias</span>
-        <div class="quote">
-          <p style="color:#E9EDF5; font-weight:600;">Desde o início, a agência acreditou em mim e cuidou de tudo para que eu focasse apenas em jogar.</p>
-          <p style="margin:0;">— [Nome do Atleta], atualmente no [Clube]</p>
-        </div>
-      </div>
-
-      <div class="card" data-animate>
-        <h3 style="color:var(--bege); margin-bottom:.5rem;">Parceiros & vitrines</h3>
-        <div class="logos" style="margin-top:.75rem;">
-          <div class="logo">[LOGO PARCEIRO]</div>
-          <div class="logo">[LOGO PARCEIRO]</div>
-          <div class="logo">[LOGO MÍDIA]</div>
-          <div class="logo">[LOGO CLUBE]</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section id="cta-final">
-    <div class="container grid-2">
-      <div data-animate>
-        <span class="eyebrow">Próximo passo</span>
-        <h2>Está pronto para elevar sua carreira?</h2>
-        <p>Seu talento merece ser visto no lugar certo. Envie seu material agora ou agende uma conversa.</p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-          <a href="#formulario" class="btn btn-primary">Quero ser representado</a>
-          <a href="#contato-clubes" class="btn btn-outline">Agendar conversa</a>
-        </div>
-      </div>
-
-      <!-- Imagem lateral (provisória) -->
-      <div class="hero-media" data-animate>
-        <img src="https://images.unsplash.com/photo-1549921296-3ecf9f223a8a?q=80&w=1600&auto=format&fit=crop" alt="Treino e alta performance">
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM / CONVERSÃO -->
-  <section id="formulario">
-    <div class="container grid-2">
-      <div data-animate>
-        <span class="eyebrow">Avaliação de perfil</span>
-        <h2>Envie seu material</h2>
-        <p>Preencha o formulário — avaliamos seu perfil com sigilo e respondemos diretamente no WhatsApp.</p>
-      </div>
-
-      <form class="form" id="leadForm" data-animate>
-        <div class="form-grid">
-          <div>
-            <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" required placeholder="Seu nome"/>
-          </div>
-          <div>
-            <label for="idade">Idade *</label>
-            <input type="number" id="idade" required placeholder="Ex: 18" min="8" max="45"/>
-          </div>
-          <div>
-            <label for="clube">Clube atual</label>
-            <input type="text" id="clube" placeholder="Ex: Sub-20 / Profissional / Sem clube"/>
-          </div>
-          <div>
-            <label for="posicao">Posição *</label>
-            <input type="text" id="posicao" required placeholder="Ex: Atacante, Zagueiro..."/>
-          </div>
-          <div>
-            <label for="contato">Seu WhatsApp *</label>
-            <input type="tel" id="contato" required placeholder="DDD + número"/>
-          </div>
-          <div>
-            <label for="instagram">Instagram / Link de vídeo *</label>
-            <input type="text" id="instagram" required placeholder="@usuario ou link YouTube"/>
-          </div>
-          <div style="grid-column:1/-1;">
-            <label for="mensagem">Observações adicionais</label>
-            <textarea id="mensagem" placeholder="Minutos jogados, histórico de clubes, conquistas individuais..."></textarea>
-          </div>
-        </div>
-        <div style="margin-top:1rem;">
-          <button type="submit" class="btn btn-primary" style="width:100%;">📲 Enviar meu material via WhatsApp</button>
-        </div>
-        <p style="margin-top:.6rem; font-size:.8rem;">Ao clicar em Enviar, você será direcionado ao WhatsApp com seus dados preenchidos.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- CONTATO PARA CLUBES/PATROCINADORES -->
-  <section id="contato-clubes">
-    <div class="container card" data-animate>
-      <h2>Clube ou patrocinador?</h2>
-      <p>Fale com a nossa equipe para mapeamento de necessidades, perfis e oportunidades.</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:.75rem;">
-        <a href="#formulario" class="btn btn-primary">Enviar briefing rápido</a>
-        <a href="#rodape" class="btn btn-outline">Ver contatos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
-  <footer id="rodape">
-    <div class="container" data-animate>
-      <div style="margin-bottom:1rem; color:var(--text); font-weight:700;">Potential Soccer — Gestão profissional de carreiras esportivas</div>
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#metodologia">Metodologia</a>
-        <a href="#segmentos">Para quem</a>
-        <a href="#formulario">Contato</a>
-        <a href="#politica" id="openPolicy">Política de Privacidade</a>
-      </nav>
-      <div style="font-size:.95rem; margin:.5rem 0 1rem;">
-        WhatsApp • Instagram • E-mail — <span style="color:var(--bege)">substitua pelos seus links</span>
-      </div>
-      <div style="font-size:.8rem; color:var(--text-dim);">
-        © Potential Soccer — Todos os direitos reservados.
-      </div>
-    </div>
-  </footer>
-
-  <!-- POPUP: POLÍTICA DE PRIVACIDADE -->
-  <div class="popup" id="policyPopup" aria-hidden="true">
-    <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
-      <button class="popup-close" id="closePolicy" aria-label="Fechar">×</button>
-      <h3 id="policyTitle">Política de Privacidade</h3>
-      <p>Seus dados serão usados apenas para avaliação de perfil e contato direto referente à sua solicitação. Não compartilhamos informações com terceiros sem consentimento.</p>
-      <p>Ao enviar o formulário, você concorda com este tratamento e autoriza nossa equipe a entrar em contato via WhatsApp e e-mail.</p>
-      <p>Para solicitar remoção ou alteração de dados, entre em contato pelos canais oficiais informados neste site.</p>
+    <div class="hero-media" data-animate>
+      <img alt="Atleta comemorando gol" src="https://raw.githubusercontent.com/twragencia/potencialsoccer/refs/heads/main/3.png?q=80&w=1820&auto=format&fit=crop"/>
     </div>
   </div>
+</header>
 
-  <script>
-    // Número do WhatsApp (trocar pelo oficial: 55 + DDD + número, sem espaços)
-    const WHATSAPP_NUMBER = "5599999999999";
+<section id="sobre">
+  <div class="container grid-2">
+    <div data-animate>
+      <span class="eyebrow">Quem Somos</span>
+      <h2>Nossa agência existe para transformar talento em carreira sustentável</h2>
+      <p>Somos especialistas em desenvolvimento, gestão e representação de atletas, unindo performance, imagem e propósito.</p>
+    </div>
+    <div class="card" data-animate>
+      <h3 style="color:var(--bege);margin-bottom:.5rem;">Como atuamos</h3>
+      <p>Atendimento próximo ao atleta e família, com planejamento estratégico e suporte integral dentro e fora de campo.</p>
+    </div>
+  </div>
+</section>
 
-    // Envio do formulário para WhatsApp
-    const form = document.getElementById("leadForm");
-    form.addEventListener("submit", (e)=>{
-      e.preventDefault();
-      const nome = document.getElementById("nome").value.trim();
-      const idade = document.getElementById("idade").value.trim();
-      const clube = document.getElementById("clube").value.trim();
-      const posicao = document.getElementById("posicao").value.trim();
-      const contato = document.getElementById("contato").value.trim();
-      const instagram = document.getElementById("instagram").value.trim();
-      const msg = document.getElementById("mensagem").value.trim();
+<section id="fundadores">
+  <div class="container">
+    <span class="eyebrow">Fundadores</span>
+    <h2>Conheça quem está por trás da agência</h2>
+    <div class="people" data-animate>
+      <article class="person"><div class="avatar"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&h=400&fit=crop"></div><div><h4>Douglas Vieira</h4><small>Diretor de Futebol</small><p>Ex-atleta com vivência internacional, atua na prospecção de talentos e na construção de relacionamentos estratégicos.</p></div></article>
+      <article class="person"><div class="avatar"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&h=400&fit=crop"></div><div><h4>Silvio Junior</h4><small>Diretor Executivo</small><p>Gestor com sólida experiência empresarial, focado na expansão de negócios e sustentabilidade da agência.</p></div></article>
+    </div>
+  </div>
+</section>
 
-      if(!nome || !idade || !posicao || !contato || !instagram){
-        alert("Por favor, preencha todos os campos obrigatórios (*).");
-        return;
-      }
+<section id="partner">
+  <div class="container grid-2">
+    <div data-animate>
+      <span class="eyebrow">Nosso Partner</span>
+      <h2>Conexões reais e negociações estratégicas</h2>
+      <p>Responsável por relacionamento com clubes e departamentos esportivos, trazendo conexões reais para os atletas.</p>
+      <div class="card"><h3>Nome do Partner</h3><p>Relações com Clubes & Scouting</p></div>
+    </div>
+    <div class="partner-banner" data-animate>
+      <img src="https://raw.githubusercontent.com/twragencia/potencialsoccer/refs/heads/main/Artboard%205.png?q=80&w=1800&auto=format&fit=crop" alt="Parceiro da agência">
+    </div>
+  </div>
+</section>
 
-      const texto = [
-        "*NOVO CONTATO — POTENTIAL SOCCER*",
-        "",
-        `*Nome:* ${nome}`,
-        `*Idade:* ${idade}`,
-        `*Clube atual:* ${clube}`,
-        `*Posição:* ${posicao}`,
-        `*WhatsApp:* ${contato}`,
-        `*Instagram/Vídeo:* ${instagram}`,
-        "",
-        `*Observações:* ${msg || "-"}`
-      ].join("\n");
+<section id="metodologia">
+  <div class="container">
+    <span class="eyebrow">Nossa forma de representar</span>
+    <h2>Nossa metodologia coloca o atleta no centro e o mercado na mesa</h2>
+    <div class="features" style="margin-top:1rem;">
+      <div class="feature" data-animate><h4>Mapeamento de perfil</h4><p>Definição de metas e plano de carreira.</p></div>
+      <div class="feature" data-animate><h4>Networking com clubes</h4><p>Relacionamentos estratégicos e oportunidades reais.</p></div>
+      <div class="feature" data-animate><h4>Imagem & posicionamento</h4><p>Gestão de marca pessoal e visibilidade.</p></div>
+      <div class="feature" data-animate><h4>Performance integral</h4><p>Acompanhamento físico e psicológico.</p></div>
+      <div class="feature" data-animate><h4>Negociação de contratos</h4><p>Segurança jurídica e transparência.</p></div>
+      <div class="feature" data-animate><h4>Foco no desempenho</h4><p>Você joga. A gente cuida do resto.</p></div>
+    </div>
+  </div>
+</section>
 
-      const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
-      window.open(wa, "_blank");
-    });
+<section id="segmentos">
+  <div class="container">
+    <span class="eyebrow">Para quem atuamos</span>
+    <div class="segments" style="margin-top:1rem;">
+      <div class="card" data-animate><h3>⚽ Profissionais</h3><p>Gestão de contratos, transferências e expansão internacional.</p></div>
+      <div class="card" data-animate><h3>👟 Jovens talentos</h3><p>Planejamento de carreira e orientação familiar.</p></div>
+      <div class="card" data-animate><h3>👨‍👩‍👦 Pais e responsáveis</h3><p>Transparência, segurança e acompanhamento contínuo.</p></div>
+    </div>
+  </div>
+</section>
 
-    // Popup de Política (com blur)
-    const popup = document.getElementById("policyPopup");
-    const openPolicy = document.getElementById("openPolicy");
-    const closePolicy = document.getElementById("closePolicy");
+<section id="cases">
+  <div class="container grid-2">
+    <div data-animate>
+      <span class="eyebrow">Resultados e histórias</span>
+      <h2>Histórias que inspiram dentro e fora de campo</h2>
+      <div class="carousel" id="testimonialCarousel">
+        <div class="quote active"><p style="color:#E9EDF5;font-weight:600;">“A Potential acreditou em mim quando eu ainda jogava na base. Hoje vivo meu sonho na Europa.”</p><p style="margin:0;">— Lucas Andrade, zagueiro do Braga (Portugal)</p></div>
+        <div class="quote"><p style="color:#E9EDF5;font-weight:600;">“Tudo o que prometeram, cumpriram. Me ajudaram a negociar meu primeiro contrato profissional com segurança.”</p><p style="margin:0;">— Felipe Moraes, meia do Goiás EC</p></div>
+        <div class="quote"><p style="color:#E9EDF5;font-weight:600;">“A equipe é próxima e transparente. Isso me dá tranquilidade para focar no que importa: jogar bola.”</p><p style="margin:0;">— Rafael Torres, atacante do Red Bull Bragantino</p></div>
+        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+        <button class="carousel-btn next" aria-label="Próximo">›</button>
+      </div>
+    </div>
+    <div class="card" data-animate>
+      <h3 style="color:var(--bege);margin-bottom:.5rem;">Parceiros & vitrines</h3>
+      <div class="logos" style="margin-top:.75rem;">
+        <div class="logo">[LOGO PARCEIRO]</div>
+        <div class="logo">[LOGO PARCEIRO]</div>
+        <div class="logo">[LOGO MÍDIA]</div>
+        <div class="logo">[LOGO CLUBE]</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    openPolicy.addEventListener("click", (e)=>{ e.preventDefault(); popup.classList.add("active"); popup.setAttribute("aria-hidden","false"); });
-    closePolicy.addEventListener("click", ()=>{ popup.classList.remove("active"); popup.setAttribute("aria-hidden","true"); });
-    popup.addEventListener("click", (e)=>{ if(e.target===popup){ popup.classList.remove("active"); popup.setAttribute("aria-hidden","true"); }});
+<section id="formulario">
+  <div class="container grid-2">
+    <div data-animate><span class="eyebrow">Avaliação de perfil</span>
+      <h2>Quer ser representado por uma agência de confiança?</h2>
+      <p>Preencha o formulário e envie seu material — nossa equipe avaliará seu perfil via WhatsApp.</p>
+    </div>
+    <form id="leadForm" class="form" data-animate>
+      <div class="form-grid">
+        <div><label>Nome *</label><input id="nome" required></div>
+        <div><label>Idade *</label><input type="number" id="idade" required></div>
+        <div><label>Clube atual</label><input id="clube"></div>
+        <div><label>Posição *</label><input id="posicao" required></div>
+        <div><label>WhatsApp *</label><input id="contato" required></div>
+        <div><label>Instagram / Vídeo *</label><input id="instagram" required></div>
+      </div>
+      <div style="margin-top:1rem;"><label>Observações</label><textarea id="mensagem"></textarea></div>
+      <div style="margin-top:1rem;"><button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">📲 Enviar via WhatsApp</button></div>
+    </form>
+  </div>
+</section>
 
-    // Animações ao rolar
-    const els = document.querySelectorAll("[data-animate]");
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-          io.unobserve(entry.target);
-        }
-      });
-    }, {threshold:.2});
-    els.forEach(el=>io.observe(el));
-  </script>
+<footer>
+  <div class="container">
+    <div style="font-size:.8rem;">© Potential Soccer — Gestão Profissional de Carreiras Esportivas</div>
+    <nav><a href="#sobre">Sobre</a><a href="#formulario">Contato</a><a href="#" id="openPolicy">Política de Privacidade</a></nav>
+  </div>
+</footer>
+
+<div class="popup" id="policyPopup">
+  <div class="popup-card">
+    <button class="popup-close" id="closePopup">×</button>
+    <h3 style="color:var(--bege);">Política de Privacidade</h3>
+    <p>Respeitamos sua privacidade e garantimos que todos os dados enviados serão usados apenas para avaliação de perfil e contato.</p>
+    <p>Não compartilhamos informações com terceiros sem autorização prévia.</p>
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "5599999999999"; // ajuste o número
+const SLIDE_INTERVAL = 6000; // tempo de troca dos depoimentos
+
+document.getElementById("leadForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const data = {
+    nome: nome.value.trim(), idade: idade.value.trim(), clube: clube.value.trim(),
+    posicao: posicao.value.trim(), contato: contato.value.trim(), instagram: instagram.value.trim(),
+    mensagem: mensagem.value.trim()
+  };
+  if(!data.nome||!data.idade||!data.posicao||!data.contato||!data.instagram){
+    alert("Por favor, preencha todos os campos obrigatórios (*)");return;
+  }
+  const msg = `*NOVO CONTATO - AVALIAÇÃO DE ATLETA*\n\n*Nome:* ${data.nome}\n*Idade:* ${data.idade}\n*Clube:* ${data.clube}\n*Posição:* ${data.posicao}\n*WhatsApp:* ${data.contato}\n*Instagram/Vídeo:* ${data.instagram}\n\n*Obs:* ${data.mensagem}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank");
+});
+
+// popup
+const policy=document.getElementById("policyPopup");
+document.getElementById("openPolicy").onclick=e=>{e.preventDefault();policy.classList.add("active");}
+document.getElementById("closePopup").onclick=()=>policy.classList.remove("active");
+policy.onclick=e=>{if(e.target===policy)policy.classList.remove("active");}
+
+// anim
+const animEls=document.querySelectorAll("[data-animate]");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}});
+},{threshold:0.2});
+animEls.forEach(el=>observer.observe(el));
+
+// ====== CARROSSEL FADE ======
+const quotes=document.querySelectorAll("#testimonialCarousel .quote");
+const nextBtn=document.querySelector("#testimonialCarousel .next");
+const prevBtn=document.querySelector("#testimonialCarousel .prev");
+let current=0;
+let autoFade;
+function showSlide(i){quotes.forEach((q,idx)=>q.classList.toggle("active",idx===i));}
+function nextSlide(){current=(current+1)%quotes.length;showSlide(current);}
+function prevSlide(){current=(current-1+quotes.length)%quotes.length;showSlide(current);}
+function startFade(){autoFade=setInterval(nextSlide,SLIDE_INTERVAL);}
+function stopFade(){clearInterval(autoFade);}
+nextBtn.addEventListener("click",()=>{stopFade();nextSlide();startFade();});
+prevBtn.addEventListener("click",()=>{stopFade();prevSlide();startFade();});
+showSlide(current);
+startFade();
+</script>
 </body>
 </html>
