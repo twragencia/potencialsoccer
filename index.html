@@ -1,1054 +1,462 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agência de Intermediação de Atletas • Gestão de Carreira Profissional</title>
-  <meta name="description" content="Agência credenciada pela CBF e conectada ao mercado FIFA. Gestão, representação e intermediação de atletas de futebol no Brasil e exterior.">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Potential Soccer • Agência de Intermediação de Atletas</title>
+  <meta name="description" content="Agência especializada em gestão e intermediação de atletas. Planejamento de carreira, negociação, imagem e oportunidades no Brasil e no exterior.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg-dark: #0f172a;
-      --bg-card: #1e2538;
-      --text-light: #f8fafc;
-      --text-dim: #94a3b8;
-      --accent: #00ff85;
-      --accent-dark: #00cc6a;
-      --stroke: rgba(255,255,255,0.08);
-      --radius-lg: 20px;
-      --radius-sm: 10px;
-      --container-max: 1280px;
-      --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth; /* âncoras deslizando */
-    }
-
-    body {
-      margin: 0;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: var(--font-primary);
-      line-height: 1.5;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    h1,h2,h3,h4 {
-      margin: 0 0 .5em;
-      line-height: 1.2;
-      color: var(--text-light);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    p {
-      margin: 0 0 1em;
-      color: var(--text-dim);
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    /* HERO ====================== */
-    .hero {
-      position: relative;
-      background: radial-gradient(circle at 20% 20%, rgba(0,255,133,0.12) 0%, rgba(15,23,42,0) 60%),
-                  radial-gradient(circle at 80% 10%, rgba(0,102,255,0.15) 0%, rgba(15,23,42,0) 60%),
-                  linear-gradient(to bottom right,#0f172a 20%,#1e2538 100%);
-      border-bottom: 1px solid var(--stroke);
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media(min-width:768px){
-      .hero-grid {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-    }
-
-    .badge-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .75rem;
-      margin-bottom: 1rem;
-      font-size: .8rem;
-      color: var(--text-dim);
-      font-weight: 500;
-    }
-
-    .cred-badge {
-      background: rgba(0,0,0,0.4);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      color: var(--text-light);
-      padding: .4rem .6rem;
-      font-size: .7rem;
-      line-height: 1.2;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-    }
-
-    .cred-badge span.icon {
-      width: .6rem;
-      height: .6rem;
-      background: var(--accent);
-      border-radius: 2px;
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 2vw + 1rem, 2.75rem);
-      font-weight: 600;
-    }
-
-    .hero p.lead {
-      color: var(--text-dim);
-      font-size: 1.1rem;
-      max-width: 40rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      border: 0;
-      border-radius: var(--radius-sm);
-      padding: .9rem 1.2rem;
-      font-size: .95rem;
-      line-height: 1.2;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0,255,133,.25);
-      text-decoration: none;
-      display: inline-block;
-      transition: all .15s linear;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      box-shadow: 0 16px 40px rgba(0,255,133,.35);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--stroke);
-      color: var(--text-light);
-      font-weight: 500;
-      padding: .9rem 1.2rem;
-      font-size: .95rem;
-      line-height: 1.2;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all .15s linear;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,.05);
-    }
-
-    .hero-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 1rem;
-      position: relative;
-    }
-
-    .mini-block {
-      background: rgba(15,23,42,.6);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      padding: .75rem;
-    }
-
-    .mini-label {
-      font-size: .7rem;
-      color: var(--text-dim);
-      margin-bottom: .4rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      font-weight: 500;
-    }
-
-    .mini-value {
-      font-size: .9rem;
-      color: var(--text-light);
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    /* SECTION WRAPPER ====================== */
-    section {
-      border-bottom: 1px solid var(--stroke);
-      background: radial-gradient(circle at 10% 0%, rgba(0,255,133,0.05) 0%, rgba(0,0,0,0) 60%);
-    }
-
-    section .section-head {
-      max-width: 780px;
-      margin-bottom: 2rem;
-    }
-
-    .section-eyebrow {
-      font-size: .75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--accent);
-      margin-bottom: .5rem;
-      display: block;
-    }
-
-    /* SOBRE ====================== */
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media(min-width:900px){
-      .sobre-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .sobre-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.5rem 2rem;
-      font-size: .95rem;
-    }
-
-    /* SERVIÇOS ====================== */
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:700px){
-      .servicos-grid {
-        grid-template-columns: repeat(2,1fr);
-      }
-    }
-    @media(min-width:1024px){
-      .servicos-grid {
-        grid-template-columns: repeat(4,1fr);
-      }
-    }
-
-    .service-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .icon-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(0,255,133,.1);
-      border: 1px solid rgba(0,255,133,.4);
-      color: var(--accent);
-      font-size: .8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: .75rem;
-    }
-
-    .service-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-light);
-      margin-bottom: .5rem;
-    }
-
-    .service-card p {
-      font-size: .9rem;
-      color: var(--text-dim);
-      line-height: 1.4;
-    }
-
-    /* PARA QUEM ====================== */
-    .publicos-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:800px){
-      .publicos-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
-    }
-    .publico-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-    }
-    .publico-card h4 {
-      font-size: .95rem;
-      font-weight: 600;
-      margin-bottom: .5rem;
-      color: var(--text-light);
-    }
-    .emoji {
-      font-size: 1.2rem;
-      line-height: 1;
-      display: inline-block;
-      margin-right: .5rem;
-    }
-    .publico-card p {
-      font-size: .9rem;
-      color: var(--text-dim);
-      line-height: 1.4;
-      margin: 0;
-    }
-
-    /* PROVAS SOCIAIS ====================== */
-    .prova-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    @media(min-width:900px){
-      .prova-wrapper {
-        grid-template-columns: 2fr 1fr;
-      }
-    }
-
-    .quote-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.5rem 2rem;
-      position: relative;
-    }
-
-    .quote-mark {
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--accent);
-      margin-bottom: .5rem;
-    }
-
-    .quote-text {
-      font-size: 1rem;
-      color: var(--text-light);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .quote-author {
-      font-size: .9rem;
-      color: var(--text-dim);
-      font-weight: 400;
-    }
-
-    .logos-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(min(120px,100%),1fr));
-      gap: 1rem;
-      font-size: .8rem;
-      color: var(--text-dim);
-      text-align: center;
-    }
-
-    .logo-item {
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      padding: 1rem;
-      color: var(--text-dim);
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-    }
-
-    /* DIFERENCIAIS ====================== */
-    .diff-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    @media(min-width:800px){
-      .diff-grid {
-        grid-template-columns: repeat(3,1fr);
-      }
-    }
-
-    .diff-card {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1rem 1.5rem;
-    }
-    .diff-card h4 {
-      margin-bottom: .5rem;
-      color: var(--text-light);
-      font-size: .95rem;
-      font-weight: 600;
-    }
-    .diff-card p {
-      color: var(--text-dim);
-      font-size: .9rem;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* FORM CONTATO ====================== */
-    .contato-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    @media(min-width:900px){
-      .contato-wrapper {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .contato-left h2 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    .contato-left p {
-      font-size: 1rem;
-      max-width: 28rem;
-    }
-
-    form {
-      background: rgba(0,0,0,.2);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem 1rem;
-    }
-    @media(min-width:600px){
-      .form-grid-2col {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    label {
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--text-light);
-      display: block;
-      margin-bottom: .4rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      background: rgba(15,23,42,.6);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius-sm);
-      color: var(--text-light);
-      font-size: .9rem;
-      line-height: 1.4;
-      padding: .8rem .8rem;
-      font-family: var(--font-primary);
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus {
-      border: 1px solid var(--accent);
-      box-shadow: 0 0 0 4px rgba(0,255,133,.12);
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .enviar-wrapper {
-      margin-top: 1rem;
-    }
-
-    .btn-whatsapp {
-      width: 100%;
-      justify-content: center;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .95rem;
-    }
-
-    /* FOOTER ====================== */
-    footer {
-      background: #0b1220;
-      color: var(--text-dim);
-      font-size: .8rem;
-      line-height: 1.4;
-      padding: 2rem 1.5rem 4rem;
-      text-align: center;
-    }
-
-    footer .footer-inner {
-      max-width: var(--container-max);
-      margin: 0 auto;
-    }
-
-    footer .legal {
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-
-    footer nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem 2rem;
-      margin-bottom: 1rem;
-    }
-
-    footer a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: .8rem;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    /* ===== ANIMAÇÃO DE ENTRADA NAS SEÇÕES ===== */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-    [data-animate].visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== POPUP DE POLÍTICA DE PRIVACIDADE ===== */
-    .popup-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(5,10,20,0.65);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .35s ease, visibility .35s ease;
-    }
-    .popup-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .popup-content {
-      background: rgba(15,23,42,0.9);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 20px 60px rgba(0,0,0,.8);
-      padding: 2rem;
-      max-width: 600px;
-      width: 90%;
-      color: var(--text-light);
-      position: relative;
-      text-align: left;
-      overflow-y: auto;
-      max-height: 80vh;
-      transform: scale(.9);
-      transition: transform .35s ease;
-    }
-
-    .popup-overlay.active .popup-content {
-      transform: scale(1);
-    }
-
-    .popup-content h3 {
-      margin-top: 0;
-      font-size: 1.1rem;
-      color: var(--text-light);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    .popup-content p {
-      font-size: .9rem;
-      line-height: 1.5;
-      color: var(--text-dim);
-    }
-
-    .close-popup {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--stroke);
-      border-radius: 6px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-light);
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1;
-      cursor: pointer;
-      transition: all .15s linear;
-    }
-
-    .close-popup:hover {
-      background: rgba(255,255,255,0.1);
-      color: var(--accent);
-      box-shadow: 0 10px 30px rgba(0,255,133,.25);
-    }
-
-    /* link política vira acionador */
-    footer a[href="#politica"] {
-      cursor: pointer;
-    }
+    :root{
+      --azul:#0C152F;
+      --bege:#B0A695;
+      --bege-70:rgba(176,166,149,.7);
+      --text:#F5F7FB;
+      --text-dim:#B7C0D0;
+      --stroke:rgba(255,255,255,.08);
+      --radius-lg:20px;
+      --radius-sm:12px;
+      --container:1280px;
+    }
+    *{box-sizing:border-box; -webkit-font-smoothing:antialiased; scroll-behavior:smooth;}
+    body{margin:0; background:var(--azul); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55;}
+    img{max-width:100%; display:block;}
+    h1,h2,h3,h4{margin:0 0 .5em; letter-spacing:-.02em;}
+    h1{font-weight:800;}
+    h2{font-weight:700;}
+    p{margin:0 0 1em; color:var(--text-dim);}
+    a{text-decoration:none; color:inherit;}
+
+    .container{max-width:var(--container); margin:0 auto; padding:3rem 1.5rem;}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.95rem 1.25rem; border-radius:12px; font-weight:600; cursor:pointer; transition:.2s ease; border:1px solid transparent;}
+    .btn-primary{background:var(--bege); color:#0B0E14;}
+    .btn-primary:hover{filter:brightness(.95);}
+    .btn-outline{border-color:var(--stroke); color:var(--text); background:transparent;}
+    .btn-outline:hover{background:rgba(255,255,255,.06);}
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; border-bottom:1px solid var(--stroke);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(176,166,149,.10) 0%, rgba(12,21,47,0) 55%),
+        linear-gradient(180deg, rgba(12,21,47,1) 0%, rgba(12,21,47,.92) 100%);
+    }
+    .hero-grid{display:grid; gap:2rem; grid-template-columns:1fr; align-items:center;}
+    @media(min-width:980px){.hero-grid{grid-template-columns:1.1fr .9fr;}}
+    .hero h1{font-size:clamp(2.1rem,1.9vw + 1.6rem,3.2rem); color:var(--text);}
+    .hero .lead{font-size:1.1rem; max-width:48rem;}
+    .hero-media{
+      border:1px solid var(--stroke); border-radius:var(--radius-lg); overflow:hidden; position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero-media::after{ /* vinheta suave */
+      content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(12,21,47,.85) 0%, rgba(12,21,47,0) 60%);
+    }
+
+    /* Section generic */
+    section{border-bottom:1px solid var(--stroke); background:radial-gradient(1200px 500px at 0% 0%, rgba(176,166,149,.05), transparent 60%);}
+    .eyebrow{display:block; font-size:.8rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--bege); margin-bottom:.5rem;}
+    .grid-2{display:grid; gap:2rem; grid-template-columns:1fr;}
+    @media(min-width:980px){.grid-2{grid-template-columns:1fr 1fr;}}
+    .card{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.25rem 1.25rem 1.5rem;}
+
+    /* Fundadores / Partner */
+    .people{display:grid; grid-template-columns:1fr; gap:1.5rem;}
+    @media(min-width:900px){.people{grid-template-columns:repeat(2,1fr);}}
+    .person{display:grid; grid-template-columns:92px auto; gap:1rem; align-items:start; background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1rem 1.25rem;}
+    .avatar{width:92px; height:92px; border-radius:50%; overflow:hidden; border:3px solid var(--bege-70);}
+    .person h4{margin:0 0 .25rem; font-size:1.05rem; color:var(--text); font-weight:700;}
+    .person small{display:block; color:var(--bege); font-weight:600; margin-bottom:.35rem;}
+    .partner-banner{border:1px solid var(--stroke); border-radius:var(--radius-lg); overflow:hidden;}
+
+    /* Serviços / Diferenças */
+    .features{display:grid; gap:1rem; grid-template-columns:1fr;}
+    @media(min-width:760px){.features{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:1160px){.features{grid-template-columns:repeat(3,1fr);}}
+    .feature{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.25rem;}
+    .feature h4{font-size:1rem; margin-bottom:.5rem;}
+
+    /* Segmentação */
+    .segments{display:grid; gap:1rem; grid-template-columns:1fr;}
+    @media(min-width:900px){.segments{grid-template-columns:repeat(3,1fr);} }
+
+    /* Depoimento / Provas */
+    .quote{position:relative; padding:1.5rem; border:1px solid var(--stroke); border-radius:var(--radius-lg); background:rgba(255,255,255,.03);}
+    .quote:before{content:"“"; position:absolute; left:14px; top:6px; color:var(--bege); font-size:2rem; line-height:1;}
+    .logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem;}
+    .logo{border:1px solid var(--stroke); border-radius:12px; padding:1rem; text-align:center; color:var(--text-dim);}
+
+    /* Form */
+    .form{background:rgba(255,255,255,.03); border:1px solid var(--stroke); border-radius:var(--radius-lg); padding:1.5rem;}
+    .form-grid{display:grid; gap:1rem; grid-template-columns:1fr;}
+    @media(min-width:720px){.form-grid{grid-template-columns:1fr 1fr;}}
+    label{font-size:.85rem; font-weight:600; color:var(--text);}
+    input,textarea{width:100%; padding:.85rem .85rem; border-radius:12px; border:1px solid var(--stroke); background:rgba(12,21,47,.6); color:var(--text); font-size:.95rem; outline:none;}
+    input:focus,textarea:focus{border-color:var(--bege); box-shadow:0 0 0 4px rgba(176,166,149,.15);}
+    textarea{min-height:110px; resize:vertical;}
+
+    /* Footer */
+    footer{background:#0A1227; border-top:1px solid var(--stroke); color:var(--text-dim); text-align:center;}
+    footer nav{display:flex; flex-wrap:wrap; gap:1rem 2rem; justify-content:center; margin:1rem 0;}
+    footer a:hover{color:var(--bege);}
+
+    /* Animations */
+    [data-animate]{opacity:0; transform:translateY(36px); transition:all .8s ease;}
+    [data-animate].visible{opacity:1; transform:translateY(0);}
+
+    /* Privacy Popup */
+    .popup{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:9999; opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease;}
+    .popup.active{opacity:1; visibility:visible;}
+    .popup::before{content:""; position:absolute; inset:0; background:rgba(6,10,20,.62); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);}
+    .popup-card{position:relative; width:min(620px,92%); background:rgba(17,26,47,.95); border:1px solid var(--stroke); border-radius:20px; padding:1.6rem; box-shadow:0 30px 80px rgba(0,0,0,.6); transform:scale(.96); transition:transform .25s ease;}
+    .popup.active .popup-card{transform:scale(1);}
+    .popup-card h3{margin:0 0 .5rem; color:var(--text); font-size:1.25rem;}
+    .popup-close{position:absolute; right:12px; top:12px; width:34px; height:34px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid var(--stroke); color:var(--text); font-weight:700; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+    .popup-close:hover{color:var(--bege); background:rgba(255,255,255,.1);}
   </style>
 </head>
 <body>
 
   <!-- HERO -->
-  <header class="hero" data-animate>
+  <header class="hero" id="topo">
     <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="badge-line">
-          <div class="cred-badge">
-            <span class="icon"></span>
-            Credenciada CBF
-          </div>
-          <div class="cred-badge">
-            <span class="icon"></span>
-            Conexão FIFA
-          </div>
-        </div>
-
-        <h1>Transformamos talento em carreira profissional.</h1>
-
-        <p class="lead">
-          Somos uma agência credenciada pela CBF e com parceiros FIFA, especializada em gestão e intermediação de atletas de futebol no Brasil e no exterior. Do primeiro contrato ao grande clube: cuidamos da sua jornada com credibilidade e estratégia.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#contato" class="btn-primary">Enviar meu material</a>
-          <a href="#sobre" class="btn-outline">Quero saber mais</a>
+      <div data-animate>
+        <span class="eyebrow">Potential Soccer</span>
+        <h1>Agência Potential Soccer – Conectando Talentos ao Alto Desempenho</h1>
+        <p class="lead">Representamos atletas com excelência, planejamento estratégico de carreira e oportunidades reais de crescimento nacional e internacional.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
+          <a href="#formulario" class="btn btn-primary">Quero ser representado</a>
+          <a href="#contato-clubes" class="btn btn-outline">Sou clube / patrocinador</a>
         </div>
       </div>
 
-      <div class="hero-card" data-animate>
-        <div class="mini-block">
-          <div class="mini-label">Atletas assessorados</div>
-          <div class="mini-value">+XX atletas em base e profissional</div>
-        </div>
-        <div class="mini-block">
-          <div class="mini-label">Transferências</div>
-          <div class="mini-value">Brasil • Europa • Oriente Médio</div>
-        </div>
-        <div class="mini-block">
-          <div class="mini-label">Bastidor real</div>
-          <div class="mini-value">Negociação direta com clubes</div>
-        </div>
+      <!-- Imagem hero (provisória). Troque por seu banner -->
+      <div class="hero-media" data-animate>
+        <img alt="Atleta comemorando gol" 
+             src="https://images.unsplash.com/photo-1593349481035-5c71f3d76c6c?q=80&w=1820&auto=format&fit=crop"/>
+        <!-- Dica: substitua pelo banner real (ex.: /img/hero.jpg) -->
       </div>
     </div>
   </header>
 
-  <!-- SOBRE -->
-  <section id="sobre" data-animate>
-    <div class="container sobre-grid">
-      <div class="section-head">
-        <span class="section-eyebrow">Quem somos</span>
-        <h2>Carreira tratada como projeto de vida.</h2>
-        <p>
-          Fundada por [nomes dos diretores], ambos agentes credenciados pela CBF, nossa agência atua no desenvolvimento, representação e transferência de atletas em todos os níveis do futebol profissional.
-        </p>
-        <p>
-          Com um braço FIFA dentro do escritório, temos acesso direto ao mercado internacional e aos principais clubes e empresários do mundo.
-        </p>
+  <!-- SOBRE A AGÊNCIA -->
+  <section id="sobre">
+    <div class="container grid-2">
+      <div data-animate>
+        <span class="eyebrow">Quem Somos</span>
+        <h2>Nossa agência existe para transformar talento em carreira sustentável</h2>
+        <p>Somos especialistas em desenvolvimento, gestão e representação de atletas. Operamos com visão de longo prazo, transparência e profissionalismo — combinando negociação de contratos, marketing esportivo, assessoria de imagem, performance e planejamento de carreira.</p>
       </div>
-
-      <div class="sobre-card">
-        <p>
-          Nossa missão é cuidar da carreira do atleta com transparência, planejamento e respeito ao talento. Aqui, o jogador não é só um número em planilha. É um patrimônio que precisa ser protegido, desenvolvido e colocado nas melhores vitrines — no Brasil e fora dele.
-        </p>
-        <p>
-          Negociamos como empresários. Planejamos como estrategistas. E cuidamos como quem entende que futebol é, sim, profissão, mas também é sonho de família.
-        </p>
+      <div class="card" data-animate>
+        <h3 style="color:var(--bege); margin-bottom:.5rem;">Como atuamos</h3>
+        <p>Atendimento próximo ao atleta e família, leitura de cenário e relações com clubes no Brasil e exterior. Cada atleta recebe um plano individual com metas claras de evolução técnica, tática, mental e de imagem, conectado ao momento do mercado.</p>
       </div>
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" data-animate>
+  <!-- FUNDADORES -->
+  <section id="fundadores">
     <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">O que fazemos</span>
-        <h2>Serviços que geram carreira, não promessa.</h2>
-        <p>Nosso trabalho é entregar evolução esportiva e segurança de carreira, dentro e fora de campo.</p>
-      </div>
+      <span class="eyebrow">Fundadores</span>
+      <h2 style="margin-bottom:1rem;">Conheça quem está por trás da agência</h2>
 
-      <div class="servicos-grid">
-        <div class="service-card" data-animate>
-          <div class="icon-circle">📈</div>
-          <h3>Gestão de Carreira</h3>
-          <p>Planejamento estratégico de evolução profissional e financeira, passo a passo, fase a fase.</p>
+      <div class="people" data-animate>
+        <!-- Pessoa 1 -->
+        <article class="person">
+          <div class="avatar">
+            <!-- Trocar por foto real -->
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&h=400&fit=crop" alt="Foto do fundador 1">
+          </div>
+          <div>
+            <h4>Douglas Vieira</h4>
+            <small>Diretor de Futebol</small>
+            <p>Ex-atleta com vivência internacional. Atua em prospecção de talentos, relacionamento com clubes e apoio estratégico nas negociações da agência.</p>
+          </div>
+        </article>
+
+        <!-- Pessoa 2 -->
+        <article class="person">
+          <div class="avatar">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&h=400&fit=crop" alt="Foto do fundador 2">
+          </div>
+          <div>
+            <h4>Silvio Junior</h4>
+            <small>Diretor Executivo</small>
+            <p>Gestor com sólida experiência empresarial. Responsável por estratégia, novos negócios e estrutura financeira — garantindo eficiência e crescimento sustentável.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER / MENTOR -->
+  <section id="partner">
+    <div class="container grid-2">
+      <div data-animate>
+        <span class="eyebrow">Nosso Partner</span>
+        <h2>Conexões reais e negociações estratégicas</h2>
+        <p>Responsável por relacionamento com clubes e departamentos esportivos, trazendo portas abertas e velocidade às conversas certas — onde talento e oportunidade se encontram.</p>
+        <div class="card" style="margin-top:1rem;">
+          <h3 style="margin-bottom:.25rem; color:var(--text);">Nome do Partner</h3>
+          <p style="margin:0;">Relações com Clubes & Scouting</p>
         </div>
-        <div class="service-card" data-animate>
-          <div class="icon-circle">🤝</div>
-          <h3>Intermediação e Transferências</h3>
-          <p>Negociação de contratos e oportunidades no Brasil e exterior, com credibilidade de mercado.</p>
+      </div>
+      <!-- Banner grande do partner (provisório) -->
+      <div class="partner-banner" data-animate>
+        <img src="https://images.unsplash.com/photo-1509035170230-84e5fda0f112?q=80&w=1800&auto=format&fit=crop" alt="Parceiro da agência em campo">
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS / DIFERENCIAIS -->
+  <section id="metodologia">
+    <div class="container">
+      <span class="eyebrow">Nossa forma de representar</span>
+      <h2>Nossa metodologia coloca o atleta no centro e o mercado na mesa</h2>
+      <div class="features" style="margin-top:1rem;">
+        <div class="feature" data-animate>
+          <h4>Mapeamento de perfil & plano individual</h4>
+          <p>Objetivos por fase da carreira, calendário competitivo e rotas de exposição.</p>
         </div>
-        <div class="service-card" data-animate>
-          <div class="icon-circle">🎯</div>
-          <h3>Mentoria e Formação</h3>
-          <p>Suporte técnico, emocional e de imagem para jovens atletas e suas famílias.</p>
+        <div class="feature" data-animate>
+          <h4>Networking com clubes & treinadores</h4>
+          <p>Relacionamentos ativos no Brasil e no exterior para a oportunidade certa.</p>
         </div>
-        <div class="service-card" data-animate>
-          <div class="icon-circle">📸</div>
-          <h3>Gestão de Imagem e Mídia</h3>
-          <p>Posicionamento de marca pessoal, mídia social, aparições e parcerias comerciais.</p>
+        <div class="feature" data-animate>
+          <h4>Imagem & posicionamento</h4>
+          <p>Gestão de marca pessoal, mídia e parcerias comerciais.</p>
+        </div>
+        <div class="feature" data-animate>
+          <h4>Performance integral</h4>
+          <p>Acompanhamento físico e psicológico (quando aplicável) para evolução consistente.</p>
+        </div>
+        <div class="feature" data-animate>
+          <h4>Negociação de contratos e incentivos</h4>
+          <p>Segurança jurídica, análise de cláusulas e proteção de longo prazo.</p>
+        </div>
+        <div class="feature" data-animate>
+          <h4>Foco total no desempenho</h4>
+          <p>Você joga. A gente cuida do resto, com transparência e estratégia.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PARA QUEM -->
-  <section id="publicos" data-animate>
+  <!-- SEGMENTAÇÃO (Para quem atuamos) -->
+  <section id="segmentos">
     <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Para quem atuamos</span>
-        <h2>Você entra em qual fase?</h2>
-        <p>Atuamos com atletas em diferentes estágios da carreira — e também com quem ajuda a cuidar dela.</p>
-      </div>
-
-      <div class="publicos-grid">
-        <div class="publico-card" data-animate>
-          <h4><span class="emoji">⚽️</span>Profissionais</h4>
-          <p>Gestão de contratos, transferências e expansão internacional. Blindagem de imagem e suporte jurídico.</p>
+      <span class="eyebrow">Para quem atuamos</span>
+      <div class="segments" style="margin-top:1rem;">
+        <div class="card" data-animate>
+          <h3 style="margin-bottom:.35rem;">⚽ Profissionais</h3>
+          <p>Gestão de contratos, transferência e expansão internacional. Blindagem de imagem e suporte jurídico.</p>
         </div>
-
-        <div class="publico-card" data-animate>
-          <h4><span class="emoji">👟</span>Jovens talentos (base)</h4>
+        <div class="card" data-animate>
+          <h3 style="margin-bottom:.35rem;">👟 Jovens talentos (base)</h3>
           <p>Planejamento de carreira, vitrine esportiva, preparação mental e orientação familiar para a transição ao profissional.</p>
         </div>
-
-        <div class="publico-card" data-animate>
-          <h4><span class="emoji">👨‍👩‍👦</span>Pais e responsáveis</h4>
-          <p>Transparência, segurança jurídica e acompanhamento contínuo. Nada acontece sem você saber.</p>
+        <div class="card" data-animate>
+          <h3 style="margin-bottom:.35rem;">👨‍👩‍👦 Pais e responsáveis</h3>
+          <p>Transparência, segurança jurídica e acompanhamento contínuo. Todos os passos claros.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROVA SOCIAL -->
-  <section id="resultados" data-animate>
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Resultados reais</span>
-        <h2>Histórias que inspiram.</h2>
-        <p>Credibilidade não se declara, se prova. Abaixo você tem bastidor, atleta e clube — real, sem teatro.</p>
+  <!-- RESULTADOS / PROVAS -->
+  <section id="cases">
+    <div class="container grid-2">
+      <div data-animate>
+        <span class="eyebrow">Resultados e histórias</span>
+        <div class="quote">
+          <p style="color:#E9EDF5; font-weight:600;">Desde o início, a agência acreditou em mim e cuidou de tudo para que eu focasse apenas em jogar.</p>
+          <p style="margin:0;">— [Nome do Atleta], atualmente no [Clube]</p>
+        </div>
       </div>
 
-      <div class="prova-wrapper">
-        <div class="quote-card" data-animate>
-          <div class="quote-mark">“</div>
-          <div class="quote-text">
-            Desde o início, a agência acreditou em mim e cuidou de tudo para que eu focasse apenas em jogar.
-          </div>
-          <div class="quote-author">
-            — [Nome do atleta], atualmente no [Clube]
-          </div>
-        </div>
-
-        <div class="logos-card" data-animate>
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[CLUBE PARCEIRO]</div>
-          <div class="logo-item">[MATÉRIA NA MÍDIA]</div>
+      <div class="card" data-animate>
+        <h3 style="color:var(--bege); margin-bottom:.5rem;">Parceiros & vitrines</h3>
+        <div class="logos" style="margin-top:.75rem;">
+          <div class="logo">[LOGO PARCEIRO]</div>
+          <div class="logo">[LOGO PARCEIRO]</div>
+          <div class="logo">[LOGO MÍDIA]</div>
+          <div class="logo">[LOGO CLUBE]</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DIFERENCIAIS -->
-  <section id="diferenciais" data-animate>
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow">Por que escolher a gente</span>
-        <h2>Diferenciais que fazem diferença em campo e na mesa de negociação.</h2>
-        <p>Quando o assunto é carreira, cada detalhe jurídico, comercial e estratégico conta.</p>
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <div class="container grid-2">
+      <div data-animate>
+        <span class="eyebrow">Próximo passo</span>
+        <h2>Está pronto para elevar sua carreira?</h2>
+        <p>Seu talento merece ser visto no lugar certo. Envie seu material agora ou agende uma conversa.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+          <a href="#formulario" class="btn btn-primary">Quero ser representado</a>
+          <a href="#contato-clubes" class="btn btn-outline">Agendar conversa</a>
+        </div>
       </div>
 
-      <div class="diff-grid">
-        <div class="diff-card" data-animate>
-          <h4>Credenciados oficialmente pela CBF</h4>
-          <p>Atuação regulamentada e dentro das normas da entidade máxima do futebol brasileiro.</p>
-        </div>
-        <div class="diff-card" data-animate>
-          <h4>Acesso direto ao mercado FIFA</h4>
-          <p>Networking internacional ativo, com portas abertas em clubes e empresários fora do país.</p>
-        </div>
-        <div class="diff-card" data-animate>
-          <h4>Equipe com experiência dentro e fora de campo</h4>
-          <p>Visão esportiva + visão de negócio. Proteção jurídica e planejamento financeiro.</p>
-        </div>
-        <div class="diff-card" data-animate>
-          <h4>Atendimento individual</h4>
-          <p>Cada atleta tem um plano, não um pacote genérico. A carreira é tratada como ativo único.</p>
-        </div>
-        <div class="diff-card" data-animate>
-          <h4>Rede de contatos internacional</h4>
-          <p>Clube certo, momento certo. Oportunidade que faz sentido para a sua fase de carreira.</p>
-        </div>
-        <div class="diff-card" data-animate>
-          <h4>Transparência com família e staff</h4>
-          <p>Todos os passos claros. Todos os termos explicados. Nada escondido.</p>
-        </div>
+      <!-- Imagem lateral (provisória) -->
+      <div class="hero-media" data-animate>
+        <img src="https://images.unsplash.com/photo-1549921296-3ecf9f223a8a?q=80&w=1600&auto=format&fit=crop" alt="Treino e alta performance">
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section id="contato" data-animate>
-    <div class="container contato-wrapper">
-      <div class="contato-left">
-        <span class="section-eyebrow">Avaliação de perfil</span>
-        <h2>Quer ser representado por uma agência de confiança e credibilidade?</h2>
-        <p>
-          Preencha o formulário e envie seu material — nossa equipe vai avaliar seu perfil com total sigilo e te responder diretamente no WhatsApp.
-        </p>
-        <p style="color:var(--accent); font-weight:500; font-size:.9rem;">
-          Atenção: só avaliamos atletas ou responsáveis legais.
-        </p>
+  <!-- FORM / CONVERSÃO -->
+  <section id="formulario">
+    <div class="container grid-2">
+      <div data-animate>
+        <span class="eyebrow">Avaliação de perfil</span>
+        <h2>Envie seu material</h2>
+        <p>Preencha o formulário — avaliamos seu perfil com sigilo e respondemos diretamente no WhatsApp.</p>
       </div>
 
-      <form id="leadForm">
-        <div class="form-grid form-grid-2col">
-          <div class="form-field">
+      <form class="form" id="leadForm" data-animate>
+        <div class="form-grid">
+          <div>
             <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+            <input type="text" id="nome" required placeholder="Seu nome"/>
           </div>
-
-          <div class="form-field">
+          <div>
             <label for="idade">Idade *</label>
-            <input type="number" id="idade" name="idade" required placeholder="Ex: 17" min="8" max="45" />
+            <input type="number" id="idade" required placeholder="Ex: 18" min="8" max="45"/>
           </div>
-
-          <div class="form-field">
+          <div>
             <label for="clube">Clube atual</label>
-            <input type="text" id="clube" name="clube" placeholder="Ex: Sub-20 / Profissional / Sem clube" />
+            <input type="text" id="clube" placeholder="Ex: Sub-20 / Profissional / Sem clube"/>
           </div>
-
-          <div class="form-field">
+          <div>
             <label for="posicao">Posição *</label>
-            <input type="text" id="posicao" name="posicao" required placeholder="Ex: Atacante, Zagueiro..." />
+            <input type="text" id="posicao" required placeholder="Ex: Atacante, Zagueiro..."/>
           </div>
-
-          <div class="form-field">
+          <div>
             <label for="contato">Seu WhatsApp *</label>
-            <input type="tel" id="contato" name="contato" required placeholder="DDD + número" />
+            <input type="tel" id="contato" required placeholder="DDD + número"/>
           </div>
-
-          <div class="form-field">
+          <div>
             <label for="instagram">Instagram / Link de vídeo *</label>
-            <input type="text" id="instagram" name="instagram" required placeholder="@usuario ou link YouTube" />
+            <input type="text" id="instagram" required placeholder="@usuario ou link YouTube"/>
+          </div>
+          <div style="grid-column:1/-1;">
+            <label for="mensagem">Observações adicionais</label>
+            <textarea id="mensagem" placeholder="Minutos jogados, histórico de clubes, conquistas individuais..."></textarea>
           </div>
         </div>
-
-        <div class="form-field" style="margin-top:1rem;">
-          <label for="mensagem">Observações adicionais</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Minutos jogados, histórico de clubes, conquistas individuais..."></textarea>
+        <div style="margin-top:1rem;">
+          <button type="submit" class="btn btn-primary" style="width:100%;">📲 Enviar meu material via WhatsApp</button>
         </div>
-
-        <div class="enviar-wrapper">
-          <button type="submit" class="btn-primary btn-whatsapp">
-            <span>📲</span>
-            <span>Enviar meu material via WhatsApp</span>
-          </button>
-        </div>
-
-        <p style="font-size:.7rem; color:var(--text-dim); margin-top:.75rem; line-height:1.4;">
-          Ao clicar em Enviar, você será direcionado ao WhatsApp com seus dados preenchidos. Basta confirmar o envio.
-        </p>
+        <p style="margin-top:.6rem; font-size:.8rem;">Ao clicar em Enviar, você será direcionado ao WhatsApp com seus dados preenchidos.</p>
       </form>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer data-animate>
-    <div class="footer-inner">
-      <div class="legal">
-        © [Nome da Agência] – Todos os direitos reservados.<br/>
-        Agentes licenciados pela CBF | Representação e Intermediação FIFA.
+  <!-- CONTATO PARA CLUBES/PATROCINADORES -->
+  <section id="contato-clubes">
+    <div class="container card" data-animate>
+      <h2>Clube ou patrocinador?</h2>
+      <p>Fale com a nossa equipe para mapeamento de necessidades, perfis e oportunidades.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:.75rem;">
+        <a href="#formulario" class="btn btn-primary">Enviar briefing rápido</a>
+        <a href="#rodape" class="btn btn-outline">Ver contatos</a>
       </div>
+    </div>
+  </section>
 
+  <!-- RODAPÉ -->
+  <footer id="rodape">
+    <div class="container" data-animate>
+      <div style="margin-bottom:1rem; color:var(--text); font-weight:700;">Potential Soccer — Gestão profissional de carreiras esportivas</div>
       <nav>
         <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-        <a href="#politica" id="openPolicyLink">Política de Privacidade</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#segmentos">Para quem</a>
+        <a href="#formulario">Contato</a>
+        <a href="#politica" id="openPolicy">Política de Privacidade</a>
       </nav>
-
-      <div style="color:var(--text-dim); font-size:.75rem;">
-        Este site não promete contratação. A avaliação é interna e confidencial.
+      <div style="font-size:.95rem; margin:.5rem 0 1rem;">
+        WhatsApp • Instagram • E-mail — <span style="color:var(--bege)">substitua pelos seus links</span>
+      </div>
+      <div style="font-size:.8rem; color:var(--text-dim);">
+        © Potential Soccer — Todos os direitos reservados.
       </div>
     </div>
   </footer>
 
-  <!-- POPUP POLÍTICA DE PRIVACIDADE -->
-  <div class="popup-overlay" id="policyPopup">
-    <div class="popup-content">
-      <button class="close-popup" id="closePopup" aria-label="Fechar política">✕</button>
-      <h3>Política de Privacidade</h3>
-      <p>
-        Respeitamos sua privacidade e garantimos que todos os dados enviados através deste formulário serão utilizados
-        apenas para avaliação de perfil e contato com o atleta ou seu responsável legal.
-      </p>
-      <p>
-        Não compartilhamos informações com terceiros sem autorização. O envio do formulário implica consentimento com estes termos.
-      </p>
-      <p>
-        Caso você queira solicitar a remoção dos seus dados do nosso histórico interno, basta nos informar pelo WhatsApp informado neste site.
-      </p>
+  <!-- POPUP: POLÍTICA DE PRIVACIDADE -->
+  <div class="popup" id="policyPopup" aria-hidden="true">
+    <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+      <button class="popup-close" id="closePolicy" aria-label="Fechar">×</button>
+      <h3 id="policyTitle">Política de Privacidade</h3>
+      <p>Seus dados serão usados apenas para avaliação de perfil e contato direto referente à sua solicitação. Não compartilhamos informações com terceiros sem consentimento.</p>
+      <p>Ao enviar o formulário, você concorda com este tratamento e autoriza nossa equipe a entrar em contato via WhatsApp e e-mail.</p>
+      <p>Para solicitar remoção ou alteração de dados, entre em contato pelos canais oficiais informados neste site.</p>
     </div>
   </div>
 
   <script>
-    // Ajuste com o número oficial da agência no padrão internacional:
-    // Exemplo Brasil: 55 + DDD + número (sem espaços, sem traço)
+    // Número do WhatsApp (trocar pelo oficial: 55 + DDD + número, sem espaços)
     const WHATSAPP_NUMBER = "5599999999999";
 
-    // Monta mensagem para WhatsApp
-    function encodeFormDataToWhatsApp(fields){
-      const msgLines = [
-        "*NOVO CONTATO - AVALIAÇÃO DE ATLETA*",
-        "",
-        "*Nome:* " + (fields.nome || ""),
-        "*Idade:* " + (fields.idade || ""),
-        "*Clube atual:* " + (fields.clube || ""),
-        "*Posição:* " + (fields.posicao || ""),
-        "*Contato do atleta / responsável:* " + (fields.contato || ""),
-        "*Instagram / Link de vídeo:* " + (fields.instagram || ""),
-        "",
-        "*Observações:* " + (fields.mensagem || "")
-      ];
-      return encodeURIComponent(msgLines.join("\n"));
-    }
-
-    // Envio do formulário para o WhatsApp
-    document.getElementById("leadForm").addEventListener("submit", function(e){
+    // Envio do formulário para WhatsApp
+    const form = document.getElementById("leadForm");
+    form.addEventListener("submit", (e)=>{
       e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const idade = document.getElementById("idade").value.trim();
+      const clube = document.getElementById("clube").value.trim();
+      const posicao = document.getElementById("posicao").value.trim();
+      const contato = document.getElementById("contato").value.trim();
+      const instagram = document.getElementById("instagram").value.trim();
+      const msg = document.getElementById("mensagem").value.trim();
 
-      const data = {
-        nome: document.getElementById("nome").value.trim(),
-        idade: document.getElementById("idade").value.trim(),
-        clube: document.getElementById("clube").value.trim(),
-        posicao: document.getElementById("posicao").value.trim(),
-        contato: document.getElementById("contato").value.trim(),
-        instagram: document.getElementById("instagram").value.trim(),
-        mensagem: document.getElementById("mensagem").value.trim()
-      };
-
-      // Validação mínima de campos obrigatórios
-      if(!data.nome || !data.idade || !data.posicao || !data.contato || !data.instagram){
+      if(!nome || !idade || !posicao || !contato || !instagram){
         alert("Por favor, preencha todos os campos obrigatórios (*).");
         return;
       }
 
-      const finalText = encodeFormDataToWhatsApp(data);
-      const waURL = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + finalText;
-      window.open(waURL, "_blank");
+      const texto = [
+        "*NOVO CONTATO — POTENTIAL SOCCER*",
+        "",
+        `*Nome:* ${nome}`,
+        `*Idade:* ${idade}`,
+        `*Clube atual:* ${clube}`,
+        `*Posição:* ${posicao}`,
+        `*WhatsApp:* ${contato}`,
+        `*Instagram/Vídeo:* ${instagram}`,
+        "",
+        `*Observações:* ${msg || "-"}`
+      ].join("\n");
+
+      const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+      window.open(wa, "_blank");
     });
 
-    // Popup de Política de Privacidade
+    // Popup de Política (com blur)
     const popup = document.getElementById("policyPopup");
-    const openPolicyLink = document.getElementById("openPolicyLink");
-    const closePopupBtn = document.getElementById("closePopup");
+    const openPolicy = document.getElementById("openPolicy");
+    const closePolicy = document.getElementById("closePolicy");
 
-    openPolicyLink.addEventListener("click", function(e){
-      e.preventDefault();
-      popup.classList.add("active");
-    });
+    openPolicy.addEventListener("click", (e)=>{ e.preventDefault(); popup.classList.add("active"); popup.setAttribute("aria-hidden","false"); });
+    closePolicy.addEventListener("click", ()=>{ popup.classList.remove("active"); popup.setAttribute("aria-hidden","true"); });
+    popup.addEventListener("click", (e)=>{ if(e.target===popup){ popup.classList.remove("active"); popup.setAttribute("aria-hidden","true"); }});
 
-    closePopupBtn.addEventListener("click", function(){
-      popup.classList.remove("active");
-    });
-
-    // fechar clicando fora do card
-    popup.addEventListener("click", function(e){
-      if(e.target === popup){
-        popup.classList.remove("active");
-      }
-    });
-
-    // Animações ao rolar (IntersectionObserver)
-    const animatedElements = document.querySelectorAll("[data-animate]");
-    const observer = new IntersectionObserver((entries)=>{
+    // Animações ao rolar
+    const els = document.querySelectorAll("[data-animate]");
+    const io = new IntersectionObserver(entries => {
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-
-    animatedElements.forEach(el=>observer.observe(el));
+    }, {threshold:.2});
+    els.forEach(el=>io.observe(el));
   </script>
-
 </body>
 </html>
